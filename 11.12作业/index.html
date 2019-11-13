@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+			}
+			
+			[v-cloak] {
+				display: none;
+			}
+			body *{
+				background-color: darkblue;
+			}
+			ul {
+				float: right;
+			}
+			
+			li {
+				float: left;
+				height: 60px;
+				line-height: 60px;
+				margin-right: 40px;
+			}
+			
+			ul li a {
+				cursor: pointer;
+				font-size: 18px;
+				color: #FFFFFF;
+			}
+			img{
+				vertical-align: middle;
+			    max-width: 100%;
+			    
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box" v-cloak>
+			<navs>
+				<div slot='no1' >
+					<ul>
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">使用流程</a>
+						</li>
+						<li>
+							<a href="#">全球服务</a>
+						</li>
+						<li>
+							<a href="#">关于我们</a>
+						</li>
+						<li>
+							<a href="#">专家团队</a>
+						</li>
+						<li>
+							<a href="#">联系我们</a>
+						</li>
+						<li>
+							<a href="#">合作伙伴</a>
+						</li>
+					</ul>
+				</div>
+			</navs>
+			<titles>
+				<div slot="no2">
+					<div style="width: 50%;float: left;">
+						<span class="span1"></span>
+						<div style="display:inline-block;font-size:50px;color: #FFFFFF;margin-top: 100px;margin-left: 250px;">
+							践行惠普金融</div>
+						<div style="display:inline-block;margin-left: 250px;">
+							<p style="font-size: 50px;color: #FFFFFF;">助力<span style="font-size: 50px;color: #1c8dff;">美好生活</span></p></div><br />
+						<span class="span2"></span>
+						<div style="display:inline-block;font-size:14px;color: #FFFFFF;margin-top: 50px;margin-left: 250px;">
+							我们的网站构建器，将传统的编码工作转化为直观的拖拽操作和<br />
+							文字录入。在这里，您仅需花上10分钟便可以完成一个H5响应<br />
+							式网站，您会发现完全不需要编写一行代码，这就是起飞页自助<br />
+							建站的神奇之处。</div>
+					</div>
+				</div>
+				<div slot="no3">
+					<img style="float: right;margin-right: 200px;margin-top: 50px;width: 400px;height: 400px;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy8zZDUyMmVkNmVhNmIzYjZhYTBiZWM0YzdhMGQyNzE3Mi5wbmc_p_p100_p_3D.png" />
+				</div>
+		</titles>
+		<logos>
+			<div slot="lee2" >
+				<span class="span1"></span>
+				<div style="font-size:40px;font-weight: bold;font-style: normal; color: #FFFFFF;display:inline-block;margin-left: 670px;margin-top: 300px;">使用流程</div>
+				<span class="span2"></span>
+			</div>
+			<div slot="lee3" style="text-align:center;padding:20px 320px;">
+				<div style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;color:#ffffff;display:inline-block;margin-top: 20px;">
+					我们的网站构建器，将传统的编码工作转化为直观的拖拽操作和文字录入。在这里，您仅需花上<br />
+					                10分钟便可以完成一个H5响应式网站。
+				</div>
+			</div>
+			<div slot="lee4">
+				<a href="#" style="display: inline-block;"><img style="width: 84px;height: 84px;margin-left:300px;float: left;margin-top: 20px;font-size: 2.85em !important;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy85Y2VmNzcxOGEzZTNiNTBlYzA2YWUzNjYxMzZjMjYxNi5wbmc_p_p100_p_3D.png"/><br>
+				<p style="float: left;margin-left: 300px;margin-top: 20px;font-size: 20px;color: #FFFFFF;">创建账户</p></a>
+				<a href="#" style="display: inline-block;"><img style="width: 84px;height: 84px;margin-left:300px;float: left;margin-top: 20px;font-size: 2.85em !important;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy8yNGQ5ZmE0MzI4ZGI1NjEwZTQwODkyZmJhZjQxYTNlNS5wbmc_p_p100_p_3D.png"/><br>
+				<p style="float: left;margin-left: 300px;margin-top: 20px;font-size: 20px;color: #FFFFFF;">安全保障</p></a>
+				<a href="#" style="display: inline-block;"><img style="width: 84px;height: 84px;margin-left:300px;float: left;margin-top: 20px;font-size: 2.85em !important;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy80ODVmOTZhYTgyYWEzN2E4ODNhYzcxZWMwODEwMDlhZC5wbmc_p_p100_p_3D.png"/><br>
+				<p style="float: left;margin-left: 300px;margin-top: 20px;font-size: 20px;color: #FFFFFF;">绑定付款</p></a>
+			</div>
+		</logos>
+		<jinqi>
+			<div slot="no4">
+				<div style="width: 50%;float: left;">
+					<span class="span1"></span>
+						<div style="display:inline-block;font-family:f86570e09f7ebb4debe619f726ef491d6;font-size:34px;font-weight:bold;font-style:normal;color:#ffffff;margin-top: 50px;margin-left: 350px;">
+							近期货币</div><br />
+						<div style="display:inline-block;font-size:16px;font-weight:normal;font-style:normal;color:#bcd8fd;margin-left: 380px;border-bottom: 2px solid #FFFFFF;height: 40px;">
+							购买进度</div><br />
+							<!--<span class="line-abs bottom hcenter" style="overflow:hidden;border-bottom-style:solid;width:100px;max-width:100px;border-bottom-width:1px;border-bottom-color:#ffffff;box-shadow: 0 1px 1px 1px #dddddd;margin-top:20px;"></span>-->
+							<div style="display:inline-block;font-size:30px;color: #FFFFFF;margin-top: 50px;margin-left: 300px;">
+							00<span style="font-size: 14px;color: #FFFFFF;">天</span>18<span style="font-size: 14px;color: #FFFFFF;">时</span>50<span style="font-size: 14px;color: #FFFFFF;">分钟</span>00<span style="font-size: 14px;color: #FFFFFF;">秒</span></div><br />
+				</div>
+			</div>
+			<div slot="no5">
+				<span class="span1"></span>
+				<div style="display:inline-block;font-size:32px;color: #FFFFFF;margin-top: 50px;margin-left: 90px;float: left;">
+							最值得信赖的平台</div><br />
+				<div style="display:inline-block;font-size:14px;line-height: 30px; color: #FFFFFF;margin-top: -100px;margin-left: 850px;float: left;">						
+                            移动互联网的稳定快速发展带动了货币行业的迅速崛起，在如此庞大的货币<br />
+                            海洋中,哪些是您所需要的货币呢？	
+				</div><br />
+				<div style="display:inline-block;font-size:16px;color: #FFFFFF;margin-top: 10px;margin-left: 850px;float: left;">						
+                        <span style="color: rgb(10,110,242);"> √</span>　
+                        <span style="color: rgb(118, 25, 240);">　</span>
+                        <span style="color: rgb(255, 255, 255);">享受专属优惠券</span>                       
+				</div>
+				<div style="display:inline-block;font-size:16px;color: #FFFFFF;margin-left: 850px;float: left;margin-top: 10px;">						
+                        <span style="color: rgb(10,110,242);"> √</span>　
+                        <span style="color: rgb(118, 25, 240);">　</span>
+                        <span style="color: rgb(255, 255, 255);">用于商城消费 先用后付券</span>     
+				</div>
+				<div style="display:inline-block;font-size:16px;color: #FFFFFF;margin-left: 850px;float: left;margin-top: 10px;">						
+                        <span style="color: rgb(10,110,242);"> √</span>　
+                        <span style="color: rgb(118, 25, 240);">　</span>
+                        <span style="color: rgb(255, 255, 255);">随心付，3/6/9/12期随心付</span>     
+				</div><br />
+				<div>
+					<img style="float: left;margin-top: 50px;margin-left: -200px;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy8zZTA2NTU1NDVjZDY4YmIyNGZlOWVjM2E2YjMzNzhlMS5wbmc_p_p100_p_3D.png"/>
+				</div>
+			</div>
+		</jinqi>
+		<quanqiu>
+			<div slot="no6">
+				<span class="span1"></span>
+				<div style="display:inline-block;font-family:f44a96a114129fea58caf6c23604447b5;font-size:40px;font-weight:bold;font-style:normal;color:#ffffff;margin-top: 420px;margin-left: -640px;">全球服务</div>
+			   <span class="span2"></span>
+			</div>
+			<div slot="no7" style="text-align:center;">
+				<div style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;color:#ffffff;display:inline-block;margin-top: 20px;">
+					我们的网站构建器，将传统的编码工作转化为直观的拖拽操作和文字录入。在这里，您仅需花上<br />
+					          10分钟便可以完成一个H5响应式网站。
+				</div>	
+			</div>
+			<div slot="no8" style="text-align:center;padding:20px 320px;">
+				<img style="width: 1140px;height: 420px;margin-top: 40px;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy8yMTg3ZWYyNmI2MDdiZmZlMDQ1MzgyMTNiNDYxMmRiYy5qcGc_p_p100_p_3D.jpg"/>
+			</div>
+		</quanqiu>
+		<guanyu>
+			<div slot="no9" style="text-align: center;">
+				<span class="span1"></span>
+				<div style="display:inline-block;font-family:f1cb1e2dd1d79f06dc67776f5f9b1b042;font-size:40px;font-weight:bold;font-style:normal;color:#ffffff;margin-top: 100px;margin-left: -30px;">关于我们</div>
+			   <span class="span2"></span>
+			</div>
+			<div slot="no10" style="text-align:center;">
+				<div style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;color:#ffffff;display:inline-block;margin-top: 20px;">
+					我们的网站构建器，将传统的编码工作转化为直观的拖拽操作和文字录入。在这里，您仅需花上<br />
+					          10分钟便可以完成一个H5响应式网站。
+				</div>	
+			</div>
+			<div slot="no11">
+				<div style="width: 50%;">
+					<div>
+						<img style="width: 64px;height: 90px;margin-left: 200px;margin-top: 100px;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy82MmMzM2FhNTI3Y2MxMjIxMWQ2YzRmMjdlYThhOTJkNC1lMTU2Mzk1MDAxNzQzOC5wbmc_p_p100_p_3D.png"/>
+					</div><br />
+					<div style="letter-spacing: 1px;line-height: 40px;">
+						<span style="font-size: 20px;margin-left: 200px;">
+							<span style="color: rgb(35, 49, 66);"></span>
+							<span style="color: rgb(255, 255, 255);">税收居民身份须知！</span>
+						</span>
+					</div><br />
+					<div style="letter-spacing: 1px;">
+						<img style="width: 12px;height: 12px;margin-left: 200px;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy8zODRiMjUzMTA5NGNjMzBmZWQ0NGRjMjU1YzcwM2JkMS5wbmc_p_p100_p_3D.png"/>
+						<span style="font-size: 14px; color: rgb(188, 216, 253);">
+							我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制 <br />
+							<span style="font-size: 14px; color: rgb(188, 216, 253);margin-left: 200px;">作和维护成为一件轻松惬意的事</span>
+                   </span><br />
+                     <img style="width: 12px;height: 12px;margin-left: 200px;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy8zODRiMjUzMTA5NGNjMzBmZWQ0NGRjMjU1YzcwM2JkMS5wbmc_p_p100_p_3D.png"/>
+                     <span style="font-size: 14px; color: rgb(188, 216, 253);margin-top: 40px;">当今最领先的响应式自助建站平台</span><br />
+                     <img style="width: 12px;height: 12px;margin-left: 200px;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy8zODRiMjUzMTA5NGNjMzBmZWQ0NGRjMjU1YzcwM2JkMS5wbmc_p_p100_p_3D.png"/>
+						<span style="font-size: 14px; color: rgb(188, 216, 253);">
+							我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制 <br />
+							<span style="font-size: 14px; color: rgb(188, 216, 253);margin-left: 200px;">作和维护成为一件轻松惬意的事</span>
+                   </span>
+					</div>
+				</div>
+			</div>
+			<div slot="no12">
+					<div>
+						<img style="width: 90px;height: 90px;margin-right:500px;margin-top: -260px;float: right;" src="https://ccdn.goodq.top/caches/76b523e47b518e3280b3a453638be094/aHR0cDovLzVkMzk2OWU0NTQxMGMudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOS8wNy9kOGFjODRhYTVlMzZjZGMyYWRiN2YyY2I1ZjVjMjdlYS5wbmc_p_p100_p_3D.png"/>
+					</div>
+				
+			</div>
+		</guanyu>
+		
+		</div>
+		
+		<template id="navs">
+			<div>
+				<slot name='no1'></slot>
+			</div>
+		</template>
+		<template id="titles">
+			<div>
+				<slot name="no2"></slot>
+				<slot name="no3"></slot>
+			</div>
+		</template>
+		<template id="logos">
+			<div>
+				<slot name="lee2"></slot>
+				<slot name="lee3"></slot>
+				<slot name="lee4"></slot>
+			</div>
+		</template>
+		<template id="jinqi">
+			<div>
+				<slot name="no4"></slot>
+				<slot name="no5"></slot>
+			</div>
+		</template>
+		<template id="quanqiu">
+			  <div>
+			  	<slot name="no6"></slot>
+			  	<slot name="no7"></slot>
+			  	<slot name="no8"></slot>
+			  </div>
+		</template>
+		<template id="guanyu">
+			<div>
+				<slot name="no9"></slot>
+				<slot name="no10"></slot>
+				<slot name="no11"></slot>
+				<slot name="no12"></slot>
+			</div>
+		</template>
+		<template id="px">
+
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('px', {
+			template: '#px',
+			props: ['boxt', 'bop'],
+			data() {
+				return {
+					arr: this.boxs,
+					index: this.bop
+				}
+			},
+		})
+		Vue.component('navs', {
+			template: '#navs',
+		})
+		Vue.component('titles', {
+			template: '#titles',
+		})
+		Vue.component('logos', {
+			template: '#logos',
+		})
+		Vue.component('jinqi', {
+			template: '#jinqi',
+		})
+        Vue.component('quanqiu', {
+			template: '#quanqiu',
+		})
+        Vue.component('guanyu', {
+			template: '#guanyu',
+		})
+		new Vue({
+			el: "#box",
+		})
+	</script>
+
+</html>
