@@ -1,0 +1,141 @@
+* {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+}
+
+.cl:after, .cl:before {
+      display: table;
+      content: '';
+}
+
+.cl:after {
+      clear: both;
+}
+
+p {
+      margin: 0;
+}
+
+#warpper {
+      position: relative;
+      padding: 0px;
+}
+
+.w-header {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 77px;
+      padding: 0 40px;
+      color: #fff;
+}
+
+.w-header .w-h-logo {
+      float: left;
+}
+
+.w-header .w-h-logo img {
+      max-height: 50px;
+}
+
+.w-header .w-h-nav {
+      float: right;
+      position: relative;
+}
+
+.w-header .w-h-nav ul li {
+      float: left;
+      margin: 0 20px;
+}
+
+.w-header .w-h-nav ul li a {
+      color: #fff;
+}
+
+.w-banner {
+      height: auto;
+      padding-top: 11%;
+      background-image: url(https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvNzdiZjlhODA2NWZhYjQ0ZDFhMDUxOTRkYTlhNjU3ODguanBn.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+
+.w-banner1 {
+      height: 480px;
+      padding-top: 11%;
+      background-image: url(https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvOWVmNGI2ZWIxMDQ0NTIyY2ZkNDQ5NGE3YzgwNmMyYjQuanBn.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #fff;
+}
+
+.w-b-inner {
+      float: left;
+      width: 50%;
+}
+
+.inner-title {
+      display: block;
+      font-size: 70px;
+      font-weight: bold;
+      color: #fff;
+      height: 400px;
+}
+
+.inner-text {
+      display: block;
+}
+
+.inner-text>div {
+      line-height: 30px;
+      color:#fff;
+      font-size: 12px;
+}
+
+.inner-intro .inner-item {
+      padding-top: 35px;
+      color: #fff;
+}
+
+.inner-intro .inner-item p:nth-of-type(1){
+      line-height: 1.5em;
+}
+
+.inner-intro .inner-item p:nth-of-type(2){
+      font-size: 26px;
+      line-height: 36px;
+}
+
+.inner-slideshow {
+      min-height: 100px;
+}
+
+.inner-slideshow>div>img {
+      padding: 5px;
+      margin: 5px;
+}
+
+.w-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      padding-top: 100px;
+}
+
+.w-container>div {
+      width: 30%;
+}
+
+.line-tabs {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      margin-top: 100px;
+}
+
+.line-tabs>div{
+      width: 30%;
+}

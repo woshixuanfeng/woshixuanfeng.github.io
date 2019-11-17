@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!--<script src="jq.js"></script>-->
+      <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+      <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+      <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+      <div id="warpper" class="container-fluid">
+            <div class="w-header cl container">
+                  <div class="w-h-logo">
+                        <img src="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvMzM0MDdjY2U4MDk5MTljNjZhZmNjZDYxMWJkNTIxZDkucG5n.png" alt="">
+                     
+                  </div>
+                  <div class="w-h-nav">
+                        <ul class="cl">
+                              <li><a href="#/no2">首页</a></li>
+                              <li><a href="#/no3">关于</a></li>
+                              <li><a href="#/no4">路线</a></li>
+                              <li><a href="">攻略</a></li>
+                              <li><a href="">关于</a></li>
+                        </ul>
+                  </div>
+            </div>
+            <router-view></router-view>
+      </div>
+<template id="no1">
+            <div class="no1">
+                  <div><img :src="imgurl" alt="" style="width:100%"></div>
+                  <h3 style="color: #13304a;font-size: 20px;font-family: 微软雅黑;font-weight: 700;padding-top: 45px;padding-bottom: 4px;">{{title}}</h3>
+                  <p style="color: #379cf4;
+                  font-size: 14px;
+                  font-family: verdana;
+                  padding: 10px 0px 0px 0px;" class="cl"><span v-for="i in far" style="width:50%;float:left;text-indent:20px;">{{i}}</span></p>
+                  <p style="line-height: 28px;
+                  padding-top: 25px;font-size:12px;">{{text}}</p>
+            </div>
+
+</template>
+<template id="no2">
+            <div>
+                  <div class="w-banner cl">
+                        <div class="container">
+                              <div class="w-b-inner inner-l">
+                                    <span class="inner-title">
+                                                                                探索<br>
+                                                                                山野秘境<br>
+                                                                                发现纯粹自我
+                                    </span>
+                                    <span class="inner-text">
+                                          <div> 背着背包的路上，听过许多故事，见过旅行风景。 </div>
+                                          <div>流转的时光，都成为命途中的点缀，</div>
+                                          <div>不言不语都是好风景。</div>
+                                    </span>
+                              </div>
+                              <div class="w-b-inner inner-r">
+                                    <div class="inner-intro">
+                                          <div class="inner-item">
+                                                <p>海拔</p>
+                                                <p>1650m</p>
+                                          </div>
+                                          <div class="inner-item">
+                                                <p>路线</p>
+                                                <p>7</p>
+                                          </div>
+                                          <div class="inner-item">
+                                                <p>游客/年</p>
+                                                <p>3000+</p>
+                                          </div>
+                                    </div>
+            
+                                    <div class="inner-slideshow">
+                                          <div>
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                        
+                  </div>
+      
+     <div class="w-container container">
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvOTgwYzcyMWVkNzI1NzRiMzNkMjUzZTU5Yjg2ZDJmNjctODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="梵净山" afar="[
+                        ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvYTMxY2EwYjEyY2ZhYTY0YTA3ZDZhNjVjMGIzYjc4NGYtODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="梵净山" afar="[
+                        'Distance:3.8km','Days:2']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <div>
+                              <h2 style="font-size: 36px;
+                              font-weight: bold;
+                              font-style: normal;
+                              color: #13304a;">RECOMM</h2>
+                              <p style="line-height:37px;">精选当季热门目的地</p>
+                              <p style="line-height: 1.5em;padding-top:40px;">偶尔为街头独特的风景驻足，偶尔因高山流水的美丽停留，偶尔被惊鸿一瞥的美丽吸引；或者在春暖花开时，或者在河边放下一盏写着心愿的河灯，祝愿一切安好。</p>
+                        </div>
+                  </div>
+            </div>
+      </template>
+      <template id="no1-1">
+            <div class="w-banner1">
+                  <div style="text-align:center;">
+                        <h3 style="line-height:65px;padding-bottom: 30px;font-size:44px;">{{title}}</h3>
+                        <p style="line-height:20px;">
+                                    {{text}}</p>
+                  </div>
+            </div>
+      </template>
+      <template id="no1-2">
+            <div style="display:flex;justify-content: space-around;flex-wrap:nowarp;margin-top: 150px;font-size: 12px;" class="container">
+                  <div style="width:30%;line-height: 30px;">当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网用户， 还是专业网站制作人员，都能使用起飞页设计出最具专业水准的网站。想创建一个简单的单页式站点，还是一个专业的公司网站，亦或是一个别具一格的博客？起飞页可以满足您的所有需求。</div>
+                  <div style="width:30%;line-height: 30px;">起飞页提供了海量精美网站模板和成品网站，几乎覆盖了当今各个行业，您只需在模板上进行少量修改，即可完成自己的网站，起飞页用户的最短建站时间纪录为30分钟。起飞页的核心竞争力来自于它集流线式布局方案与可视化内容编辑于一体，支持打字传图，不需要专业编写代码，也没有其他建站工具的层叠式烦恼，您可以随心所欲创建区块、添加组件…</div>
+                  <div style="width:30%;border: 1px solid black;"></div>
+            </div>
+      </template>
+
+      <template id="no3">
+            <div>
+                  <no1_1 atitle="ABOUT US" atext="背上行囊去远方，那个梦寐以求的目的地。"></no1_1>
+                  <no1_2 class="container"></no1_2>
+            </div>
+      </template>
+
+      <template id="no4">
+            <div>
+                  <no1_1 atitle="DESTINATION" atext="背上行囊去远方，那个梦寐以求的目的地。"></no1_1>
+                  <div class="line-tabs container">
+                              <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvMzE0Mzg3ZGQ4MmQxNTJjMmQ5ZmZhZTNjMWUyOTM4MjYtODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="织金大峡谷" afar="[
+                              ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvYWMwNjRjY2Y5NDJmNDNiNTY1YzZhODY5MzMxMjM1ZWItODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="青龙洞" afar="[
+                        ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvYmNmMDU3ZWVmZDhlMjJjZmQxMWYzNGNiMzIzZjhhODAtODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="乌兰布通草原" afar="[
+                              ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                  </div>
+
+                  <div class="line-tabs container">
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvNTc5MTNjNzVjMWU3OGRjOGVhNWI0MTRmMDg0MWFmNDUtODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="格凸河" afar="[
+                        ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvYTMxY2EwYjEyY2ZhYTY0YTA3ZDZhNjVjMGIzYjc4NGYtODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="玉龙沙湖" afar="[
+                        ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvOTgwYzcyMWVkNzI1NzRiMzNkMjUzZTU5Yjg2ZDJmNjctODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="梵净山" afar="[
+                        ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                  </div>
+            </div>
+      </template>
+      <script src="vue.js"></script>
+      <script src="vue-router.js"></script>
+      <script>
+      	let no1 = Vue.component('no1', {
+							template: '#no1',
+							props: ['aimgurl', 'atitle', 'afar', 'atext'],
+							data() {
+								return {
+									imgurl: this.aimgurl,
+									title: this.atitle,
+									far: eval(this.afar),
+									text: this.atext
+								}
+							},
+							created() {
+								console.log(eval(this.afar))
+							}
+						});
+						
+						let no2 = Vue.component('no2', {
+							template: '#no2'
+						})
+						
+						let no3 = Vue.component('no3', {
+							template: '#no3'
+						})
+						
+						let no1_1 = Vue.component('no1_1', {
+							template: '#no1-1',
+							props: ['atitle', 'atext'],
+							data() {
+								return {
+									title: this.atitle,
+									text: this.atext
+								}
+							}
+						})
+						
+						let no1_2 = Vue.component('no1_2', {
+							template: '#no1-2'
+						})
+						
+						let no4 = Vue.component('no4', {
+							template: '#no4'
+						})
+						
+						let router = new VueRouter({
+							routes: [{
+									path: '/no2',
+									component: no2
+								},
+								{
+									path: '/no3',
+									component: no3
+								},
+								{
+									path: '/no4',
+									component: no4
+								}
+							]
+						
+						})
+						
+						let box = new Vue({
+							el: '#warpper',
+							router,
+							data: {
+						
+							},
+						
+			   })
+    </script>
+</body>
+</html>
