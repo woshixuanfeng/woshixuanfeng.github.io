@@ -23,8 +23,8 @@
                               <li><a href="#/no2">首页</a></li>
                               <li><a href="#/no3">关于</a></li>
                               <li><a href="#/no4">路线</a></li>
-                              <li><a href="">攻略</a></li>
-                              <li><a href="">关于</a></li>
+                              <li><a href="#/no5">攻略</a></li>
+                              <li><a href="#/no6">联系</a></li>
                         </ul>
                   </div>
             </div>
@@ -148,6 +148,25 @@
                   </div>
             </div>
       </template>
+      <template id="no5">
+      	<div>
+      		 <no1_1 atitle="DESTINATION" atext="背上行囊去远方，那个梦寐以求的目的地。"></no1_1>
+      		 <div class="line-tabs container">
+                              <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvMzE0Mzg3ZGQ4MmQxNTJjMmQ5ZmZhZTNjMWUyOTM4MjYtODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="织金大峡谷" afar="[
+                              ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvYWMwNjRjY2Y5NDJmNDNiNTY1YzZhODY5MzMxMjM1ZWItODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="青龙洞" afar="[
+                        ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+                        <no1 aimgurl="https://ccdn.goodq.top/caches/b18d463ab761d9369e21aaf6ec1c2764/aHR0cHM6Ly81ZDBjNzNmODdkMzc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDYvYmNmMDU3ZWVmZDhlMjJjZmQxMWYzNGNiMzIzZjhhODAtODAweDUwMC5qcGc_p_p100_p_3D.jpg" atitle="乌兰布通草原" afar="[
+                              ' Distance:4.3km','Days:4']" atext="当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让..."></no1>
+               </div>
+      	</div>
+      </template>
+      <template id="no6">
+      	  <div>
+      	  	 <no1_1 atitle="DESTINATION" atext="背上行囊去远方，那个梦寐以求的目的地。"></no1_1>
+      	  	 
+      	  </div>
+      </template>
       <script src="vue.js"></script>
       <script src="vue-router.js"></script>
       <script>
@@ -194,6 +213,12 @@
 							template: '#no4'
 						})
 						
+						let no5 = Vue.component('no5', {
+							template: '#no5'
+						})
+						let no6 = Vue.component('no6', {
+							template: '#no6'
+						})
 						let router = new VueRouter({
 							routes: [{
 									path: '/no2',
@@ -206,6 +231,14 @@
 								{
 									path: '/no4',
 									component: no4
+								},
+								{
+									path: '/no5',
+									component: no5
+								},
+								{
+									path: '/no6',
+									component: no6
 								}
 							]
 						
