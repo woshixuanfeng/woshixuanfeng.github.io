@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>QQ音乐</title>
+		<!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.header {
+				width: 500px;
+				height: 100px;
+				background: #CCCCCC;
+			}
+			
+			.a {
+				float: left;
+				margin-left: 60px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" v-cloak class="container">
+			<div class="header">
+				<ul class="list cleafix">
+					<li v-for="item,index in arr" :key="index">
+						<a :href="item.path" class="a">
+							<span @click="z_index=index" :class="{active:index==z_index}">
+								{{item.name}}
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="content">
+				<keep-alive>
+					<router-view></router-view>
+				</keep-alive>
+			</div>
+			<div class="footer">
+				<audio :src="songurl" controls autoplay loop id="audio" v-if="songurl"></audio>
+			</div>
+		</div>
+	</body>
+	<!-- 首页模板 -->
+	<template id="index">
+		<div class="headerindex">
+			<input type="search form-control" class="search" placeholder="请输入你要搜索的歌曲" v-model="value" @keyup.enter="btn">
+			<div>
+				<div v-if="hotkey" style="height:120px;overflow: hidden;">
+					<span v-for="i,$index in hotkey" class="span" @click="vlaue_hotkey(i.k)" :key="$index">
+						{{i.k}}
+					</span>
+				</div>
+			</div>
+		</div>
+	</template>
+	<!-- 排行榜模板 -->
+	<template id="ranking_list">
+		<div>
+			排行榜
+		</div>
+	</template>
+	<!-- 歌单模板 -->
+	<template id="song_list">
+		<div>
+			歌单
+		</div>
+	</template>
+	<!-- 歌手模板 -->
+	<template id="songname">
+		<div>
+			<ul class="clearfix list-group">
+				<li class="list-group-item list-group-item-info" v-for="item,index in list" :key="index" @click="sing(item.Fsinger_mid)">
+					<span>
+						{{item.Fsinger_name}}
+					</span>
+				</li>
+			</ul>
+		</div>
+	</template>
+	<!-- 播放列表 -->
+	<template id="playlist">
+		<div>
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-info">
+					{{this.$route.params.songname}}
+				</li>
+			</ul>
+		</div>
+	</template>
+	<template id="index1">
+		<div>
+			<ul class="cleafix">
+				<li v-for="item,index in listsong" :key="index" class="list-group-item list-group-item-success" @click="btn(item.songid,item.albumname)">
+					<router-link :to="{name:'playlist',params:{id:item.albumid,songmid:item.songmid,songname:item.albumname}}">
+						<span @click="z_index=index" :class="{active1:index==z_index}">{{item.albumname}}</span>
+					</router-link>
+				</li>
+			</ul>
+		</div>
+	</template>
+
+</html>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script src="vue-resource.js"></script>
+<script>
+	// 1.创建模板
+	let index = {
+		template: '#index',
+		data() {
+			return {
+				value: '', //搜索的内容
+				listsong: '', //歌曲列表
+				hotkey: '' //热门推荐
+			}
+		},
+		created() {
+			this.$http.jsonp('https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg?g_tk=5381&uin=0&format=jsonp&jsonpCallback=callback&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&_=1513317614040', {
+				jsonpCallback: 'callback'
+			}).then((data) => {
+				// console.log(data.data.data.hotkey)
+				this.hotkey = data.data.data.hotkey
+			})
+		},
+		//搜索列表
+		methods: {
+			btn() {
+				if(this.value == '') {
+					alert('请输入你要搜索的内容')
+					return
+				}
+				this.$http.jsonp(
+					`https://c.y.qq.com/soso/fcgi-bin/client_search_cp?g_tk=5381&p=1&n=20&w=${this.value}&format=jsonp&jsonpCallback=callback&loginUin=0&hostUin=0&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&remoteplace=txt.yqq.song&t=0&aggr=1&cr=1&catZhida=1&flag_qc=0`, {
+						jsonpCallback: 'callback'
+					}).then((data) => {
+					console.log(data.data.data.song.list)
+					this.listsong = data.data.data.song.list
+				})
+				location.href = `#/index1/${this.value}`
+			},
+			//热门推荐重新赋值给v-model渲染列表
+			vlaue_hotkey(v) {
+				this.value = v
+				this.btn()
+			}
+		}
+	}
+	let ranking_list = {
+		template: '#ranking_list'
+	}
+	let song_list = {
+		template: '#song_list'
+	}
+	//歌单列表
+	let songname = {
+		template: '#songname',
+		data() {
+			return {
+				list: '',
+				singermid: '',
+				songname: [], //个人歌手歌单列表
+			}
+		},
+		created() {
+			this.$http.jsonp('https://c.y.qq.com/v8/fcg-bin/v8.fcg', {
+				params: {
+					channel: 'singer',
+					page: 'list',
+					key: 'all_all_all',
+					pagesize: 100,
+					pagenum: 1,
+					g_tk: 5381,
+					jsonpCallback: 'callback',
+					loginUin: 0,
+					hostUin: 0,
+					format: 'jsonp',
+					inCharset: 'utf8',
+					outCharset: 'utf-8',
+					notice: 0,
+					platform: 'yqq',
+					needNewCode: 0,
+				},
+				jsonpCallback: 'callback',
+			}).then((fn) => {
+				let data = fn.data.data.list
+				this.list = data
+				console.log(data);
+			}, (err) => {})
+		},
+		methods: {
+			sing(v) {
+				this.singermid = v
+				// this.$http.jsonp('https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg', {
+				// 	params: {
+				// 		g_tk: 5381,
+				// 		jsonpCallback: 'callback',
+				// 		loginUin: 0,
+				// 		hostUin: 0,
+				// 		format: 'jsonp',
+				// 		inCharset: 'utf8',
+				// 		outCharset: 'utf-8',
+				// 		notice: 0,
+				// 		platform: 'yqq',
+				// 		needNewCode: 0,
+				// 		singermid: v,
+				// 		order: 'listen',
+				// 		begin: 0,
+				// 		num: 30,
+				// 		songstatus: 1
+				// 	},
+				// 	jsonpCallback: 'callback',
+				// }).then((del) => {
+				// 	let data1 = del.data.data.list
+				// 	this.songname = data1
+				// 	console.log(data1)
+				// }, (err) => {})
+			}
+		}
+	}
+	let playlist = {
+		template: '#playlist',
+		data() {
+			return {
+				songname: '', //歌曲名字
+				songmid: '', //歌曲id
+				songurl: '', //播放路径
+				namelist: [] //历史记录歌名列表
+			}
+		},
+		created() {
+			this.songname = this.$route.params.songname
+			this.songmid = this.$route.params.songmid
+			this.namelist = JSON.parse(localStorage.arr)
+			console.log(this.$route.params)
+			this.$http.jsonp(`https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=1278911659&hostUin=0&format=jsonp&callback=callback&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin=0&songmid=${this.songmid}&filename=C400${this.songmid}.m4a&guid=3655047200`, {
+				params: {},
+				callback: name
+			}).then((data) => {
+				console.log(data.data.data.items[0])
+				let filename = data.data.data.items[0].filename
+				let songmid = data.data.data.items[0].songmid
+				let vkey = data.data.data.items[0].vkey
+				console.log(songmid)
+				let songurl = `
+							http://dl.stream.qqmusic.qq.com/${filename}?vkey=${vkey}&guid=3655047200&fromtag=66
+								 `
+				this.songurl = songurl
+				console.log(this.songurl)
+			}, (err) => {})
+		},
+	}
+	let index1 = {
+		template: '#index1',
+		data() {
+			return {
+				z_index: 0,
+				listsong: '',
+				name: '',
+				arr: []
+			}
+		},
+		//重新请求数据首页
+		created() {
+			console.log(this.$route.params.name)
+			this.name = this.$route.params.name
+			this.$http.jsonp(
+				`https://c.y.qq.com/soso/fcgi-bin/client_search_cp?g_tk=5381&p=1&n=20&w=${this.name}&format=jsonp&jsonpCallback=callback&loginUin=0&hostUin=0&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&remoteplace=txt.yqq.song&t=0&aggr=1&cr=1&catZhida=1&flag_qc=0`, {
+					jsonpCallback: 'callback'
+				}).then((data) => {
+				console.log(data.data.data.song.list)
+				this.listsong = data.data.data.song.list
+			})
+		},
+		methods: {
+			btn(uid, albumname) {
+				console.log(uid, albumname)
+				// 本地存储历史搜索记录
+				this.arr.push({
+					uid: uid,
+					albumname: albumname
+				})
+				localStorage.arr = JSON.stringify(this.arr)
+			}
+		}
+	}
+	let songname1 = {
+		template: '#songname1'
+	}
+	// 2.配置路由
+	let routes = [{
+			path: '/',
+			name: 'index',
+			component: index
+		},
+		{
+			path: '/ranking_list',
+			name: 'ranking_list',
+			component: ranking_list
+		},
+		{
+			path: '/song_list',
+			name: 'song_list',
+			component: song_list
+		},
+		{
+			path: '/songname',
+			name: 'songname',
+			component: songname
+		},
+		{
+			path: '/playlist/:songmid/:songname',
+			name: 'playlist',
+			component: playlist
+		},
+		{
+			path: '/index1/:name',
+			name: 'index1',
+			component: index1
+		}
+	]
+	// 3.生成路由
+	let router = new VueRouter({
+		routes
+	})
+
+	// 4.启动路由
+	let vm = new Vue({
+		el: '#box',
+		router,
+		data: {
+			songurl: '',
+			z_index: 0,
+			arr: [{
+					name: '首页',
+					path: '#/'
+				},
+				{
+					name: '排行榜',
+					path: '#/ranking_list'
+				},
+				{
+					name: '歌单',
+					path: '#/song_list'
+				},
+				{
+					name: '歌手',
+					path: '#/songname'
+				},
+				{
+					name: '播放列表',
+					path: '#/playlist'
+				},
+			],
+			value: '',
+		},
+		watch: {
+			//监听路由的变化
+			'$route.path': function(a) {
+				console.log(a)
+				if(a.length > 10) {
+					let songmid = a.substring(10, 24)
+					this.$http.jsonp(`https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=1278911659&hostUin=0&format=jsonp&callback=callback&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin=0&songmid=${songmid}&filename=C400${songmid}.m4a&guid=3655047200`, {
+						params: {},
+						callback: name
+					}).then((data) => {
+						console.log(data.data.data.items[0])
+						let filename = data.data.data.items[0].filename
+						let songmid = data.data.data.items[0].songmid
+						let vkey = data.data.data.items[0].vkey
+						console.log(songmid)
+						let songurl = `
+									http://dl.stream.qqmusic.qq.com/${filename}?vkey=${vkey}&guid=3655047200&fromtag=66
+										 `
+						this.songurl = songurl
+						console.log(this.songurl)
+					}, (err) => {})
+					console.log(songmid)
+				}
+
+			}
+		}
+	})
+</script>

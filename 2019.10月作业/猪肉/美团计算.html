@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<style>
+		.clearfix:after,
+		.clearfix:before {
+			display: table;
+			content: '';
+		}
+
+		.clearfix:after {
+			clear: both;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+ 
+		.content {
+			width: 600px;
+			height: 600px;
+			border: solid 1px #ccc;
+			margin: 20px auto;
+		}
+
+		header {
+			line-height: 60px;
+			border-bottom: 1px solid #ccc;
+			text-align: center;
+		}
+
+		.header-left {
+			float: left;
+			font-size: 24px;
+			color:#007AFF;
+		}
+
+		.item {
+			min-height: 500px;
+		}
+
+		.item-left {
+			float: left;
+			width: 80px;
+			background-color: #F2F2F2;
+		}
+
+		.item-left li {
+			width: 100%;
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: normal;
+			color: #888888;
+		}
+
+		.item-right {
+			float: left;
+			margin-left: 22px;
+		}
+
+		.img {
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+
+		.img img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.item-con {
+			margin-top: 40px;
+			width: 100%;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.item-text {
+			float: left;
+			min-width: 200px;
+			margin-left: 20px;
+		}
+
+		.item-text p {
+			font-size: 20px;
+		}
+
+		.btns {
+			float: left;
+		}
+
+		.footer {
+			height: 80px;
+			width: 100%;
+			background-color: #515152;
+		}
+
+		.footer-s {
+			height: 100px;
+			float: left;
+			line-height: 100px;
+			color: #fff;
+			font-size: 24px;
+			padding-left: 80px;
+		}
+
+		.footet-b {
+			float: right;
+			width: 110px;
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			background-color: #37cb72;
+		}
+
+		.footet-b a {
+			display: block;
+			color: #fff;
+		}
+		.nav {
+			width: 100%;
+			line-height: 60px;
+			border-bottom: solid 1px #f8f8f8;
+		}
+		.nav span {
+			float: left;
+			width: 33%;
+			text-align: center;
+		}
+
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box" v-cloak>
+		<div class="content">
+			<header>
+				<span class="header-left">
+					< </span>庆丰包子铺
+			</header>
+			<div class="nav clearfix">
+				<span style="color:#5bc0de">点餐</span>
+				<span>评价</span>
+				<span>商家</span>
+			</div>
+			<div class="item clearfix">
+				<ul class="item-left">
+					<li 
+					v-for="i,$index in list" @click="n=$index"
+					 :style="{backgroundColor:n==$index?'#f8f8f8':'#fff'}">
+					{{i}}</li>
+				</ul>
+				<div class="item-right">
+					<div v-for="j,$ind in arr" v-show="j.index==n" class="item-con clearfix">
+						<div class="img">
+							<img :src="j.img" />
+						</div>
+						<div class="item-text clearfix">
+							<p>{{j.goods_name}}</p>
+							<div class="price">￥{{j.goods_price}}</div>
+								<my-child 
+								v-model="j.num"
+								@input="oInd($event,j.goods_price,$ind)">
+								</my-child>
+							<div style="float: left;">小计:{{j.n}}
+								<span v-if="j.n">元</span>
+								<span v-else>元</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="footer">
+			<div class="footer-s">
+				总价:{{total}}元
+			</div>
+			<div class="footet-b">
+				<a href="javascript:;">结账</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<template id="item">
+		<div class="btns">
+			<button class="btn btn-info" @click="jian">-</button>
+			<input type="text" style="width: 30px;" v-model="numbers" />
+			<button class="btn btn-info" @click="jia">+</button>
+		</div>
+	</template>
+	<script src="js/vue.js"></script>
+	<script>
+		Vue.component('my-child', {
+			template: '#item',
+			props: ['value'],
+			methods: {
+				jia() {
+					this.numbers++
+				},
+				jian() {
+					if (this.numbers == 0) {
+						this.numbers = 0
+						return
+					}
+					this.numbers--
+				}
+			},
+			computed: {
+				numbers: {
+					get() {
+						return this.value
+					},
+					set(value) {
+						this.$emit('input', value)
+					}
+				}
+			}
+
+		})
+		new Vue({
+			el: '#box',
+			data() {
+				return {
+					n: 0,
+					type: true,
+					total: 0,
+					list: ['水饺', '流食', '凉菜', '包子', '庆丰福粽'],
+					arr: [
+						{
+							img: 'https://f10.baidu.com/it/u=1856966395,724479572&fm=72',
+							num: 0,
+							n: '',
+							index: 0,
+							goods_name: '意大利面',
+							goods_price: '19.00',
+						},
+						{
+							img: 'https://f10.baidu.com/it/u=1856966395,724479572&fm=72',
+							num: 0,
+							n: '',
+							index: 4,
+							goods_name: '北极贝',
+							goods_price: '34.00',
+						},
+						{
+							img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1417934655,3850219143&fm=26&gp=0.jpg',
+							num: 0,
+							n: '',
+							index: 0,
+							goods_name: '冰激凌',
+							goods_price: '34.00',
+						},
+						{
+							img: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2332509290,205923074&fm=26&gp=0.jpg',
+							num: 0,
+							n: '',
+							index: 1,
+							goods_name: '巧克力',
+							goods_price: '59.00',
+						},
+						{
+							img: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2332509290,205923074&fm=26&gp=0.jpg',
+							num: 0,
+							n: '',
+							index: 2,
+							goods_name: '炒面',
+							goods_price: '9.00',
+						}
+						,
+						{
+							img: 'https://f10.baidu.com/it/u=1856966395,724479572&fm=72',
+							num: 0,
+							n: '',
+							index: 1,
+							goods_name: '荞麦面',
+							goods_price: '9.00',
+						}
+						,
+						{
+							img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1417934655,3850219143&fm=26&gp=0.jpg',
+							num: 0,
+							n: '',
+							index: 2,
+							goods_name: '咚咚烧',
+							goods_price: '3.00',
+						},
+						{
+							img: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2557941754,291179557&fm=26&gp=0.jpg',
+							num: 0,
+							n: '',
+							index: 2,
+							goods_name: '鳗鱼饭三吃',
+							goods_price: '13.00',
+						},
+						{
+							img: 'https://f11.baidu.com/it/u=3250680277,1257668285&fm=72',
+							num: 0,
+							n: '',
+							index: 3,
+							goods_name: '鸡翅',
+							goods_price: '13.00',
+						},
+						{
+							img: 'https://f11.baidu.com/it/u=3250680277,1257668285&fm=72',
+							num: 0,
+							n: '',
+							index: 4,
+							goods_name: '双皮奶',
+							goods_price: '3.00',
+						},
+						{
+							img: 'https://f10.baidu.com/it/u=1739444467,1217617905&fm=72',
+							num: 0,
+							n: '',
+							index: 3,
+							goods_name: '提拉米苏',
+							goods_price: '3.00',
+						},
+						{
+							img: 'https://f10.baidu.com/it/u=1739444467,1217617905&fm=72',
+							num: 0,
+							n: '',
+							index: 4,
+							goods_name: '提拉米苏',
+							goods_price: '3.00',
+						},
+
+					],
+				}
+			},
+			methods: {
+				oInd(m, price, index) {
+					this.arr[index].n = m * price
+					var ind = 0
+					for (var i = 0; i < this.arr.length; i++) {
+						ind += this.arr[i].num * this.arr[i].goods_price
+					}
+					this.total = ind
+				}
+			},
+		})
+	</script>
+</body>
+</html>

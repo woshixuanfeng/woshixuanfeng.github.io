@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			[v-cloak]{
+				display: none;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<router-link to="/home">首页</router-link>
+				</li>
+				<li>
+					<router-link to="/news">新闻</router-link>
+				</li>
+				<li>
+					<router-link to="/hot">热点</router-link>
+				</li>
+			</ul>
+			<router-view></router-view>
+
+		</div>
+		<template id="home">
+			<div style="height: 160px;background: #CCCCCC;">
+				<h3>首页</h3>
+			</div>
+		</template><br>
+
+		<template id="news">
+			<div>
+				<h3>新闻</h3>
+				<router-link to="/news/file">新闻文件</router-link>
+				<router-link to="/news/msg">新闻说明</router-link>
+				<router-view></router-view>
+			</div>
+		</template>
+		<template id="hot">
+			<div>
+				<h3>热点</h3>
+				<router-link to="/hot/file">热点文件</router-link>
+				<router-link to="/hot/msg">热点说明</router-link>
+				<router-view></router-view>
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script src="vue-router.js"></script>
+	<script>
+		var Home = Vue.extend({
+			template: "#home"
+		});
+		var News = Vue.extend({
+			template: "#news"
+		});
+		var Hot = Vue.extend({
+			template: "#hot"
+		});
+		var routes = [{
+				path: "/home",
+				component: Home
+			},
+			{
+				path: '/news',
+				component: News,
+				children: [
+					{
+						path: "file",
+						component: {
+							template: "<div>新闻文件详情页哦</div>"
+						}
+					},
+					{
+						path: "msg",
+						component: {
+							template: "<div>新闻说明页二级路由哦</div>"
+						}
+					}
+				]
+			}, 
+			{
+				path: '/hot',
+				component: Hot,
+				children: [
+					{
+						path: "file",
+						component: {
+							template: "<div>热点文件详情页哦</div>"
+						}
+					},
+					{
+						path: "msg",
+						component: {
+							template: "<div>热点说明页二级路由哦</div>"
+						}
+					}
+				]
+			}
+		];
+		var router = new VueRouter({
+			routes: routes
+		});
+		var vm = new Vue({
+			el: "#box",
+			router: router
+		});
+	</script>
+
+</html>

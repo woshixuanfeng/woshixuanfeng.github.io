@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物车</title>
+		<style type="text/css">
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+			}
+			input[type="number"] {
+				appearance: textfield;
+			}
+			[v-cloak]{
+				display:none;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+				list-style:none;
+				-webkit-user-select:none;
+				box-sizing: border-box;
+			}
+			.container{
+				width: 100%;
+				height:auto;
+			}
+			.header{
+				width: 503px;
+				line-height:50px;
+				background:#ccc;
+				border-bottom:1px #ccc solid;
+				box-sizing: border-box;
+				font-size:20px;
+				text-align:center;
+				margin:0 auto;
+			}
+			.box1{
+				width: 500px;
+				height:30px;
+				line-height:30px;
+				margin:0 auto;
+			}
+			.box1 li{
+				float:left;
+				padding:0 0 0 20px;
+			}
+			.con{
+				width: 500px;
+				min-height:600px;
+				border:1px #000 solid;
+				margin:0 auto;
+			}
+			.list{
+				width: 100px;
+				min-height:600px;
+				background:#f8f8f8;
+				float:left;
+			}
+			.clearfix:before,.clearfix:after{
+				content:'';
+				display:table;
+				clear:both;
+			}
+			.list li{
+				width: 100px;
+				height: 50px;
+				line-height:50px;
+				box-sizing: border-box;
+				font-size:15px;
+				padding-left:5px;
+			}
+			.active{
+				background:#999;
+			}
+			.list1{
+				width: 390px;
+				min-height: 130px;
+				float:left;
+				border-bottom:1px #000 solid;
+			}
+			.img{
+				width: 100px;
+				height: 100px;
+				box-sizing: border-box;
+				border:1px #000 solid;
+				margin:10px 10px 0 20px;
+				float:left;
+			}
+			p{
+				float:left;
+			}
+			.img .img1{
+				width: 100%;
+				height: 100%;
+			}
+			.op{
+				line-height:5px;
+			}
+			.text_span{
+				font-size:14px;
+				line-height:15px;
+				display:block;
+				
+				margin-top:5px;
+				
+				color:#787878;
+				
+			}
+		.price{
+			font-size:20px;
+			color:#de574c;
+		}
+		.jia,.jian{
+			height: 30px;
+			width: 30px;
+			border:none;
+			outline:none;
+			cursor:pointer;
+		}
+		.inp{
+			width: 80px;
+			height: 25px;
+			text-align:center;
+		}
+		.footer{
+			width: 503px;
+			min-height:80px;
+			background:#515152;
+			margin:0 auto;
+		}
+		.footer1{
+			width: 350px;
+			height: 80px;
+			line-height:80px;
+			text-align:center;
+			background:#515154;
+			color:#fff;
+			float:left;
+			font-size:20px;
+		}
+		.footer2{
+			width: 153px;
+			height: 80px;
+			font-size:20px;
+			line-height:80px;
+			background:#37cb70;
+			color:#fff;
+			text-align:center;
+			float:right;
+		}
+		.jie{
+			width: 100%;
+			min-height:500px;
+			background:#ccc;
+		}
+		.jesapn{
+			display:block;
+			font-size:20px;
+			line-height:50px;
+			height: 50px;
+			border-bottom:1px #000 solid;
+			padding-left:15px;
+		}
+		.list_jie{
+			width:480px;
+			min-height:300px;
+			background:#ffffff;
+			margin:10px;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<div id="box" v-cloak>
+			<div class="container">
+				<div class="header">
+					<span class="span1">庆丰食品铺</span>
+				</div>
+				<div class="con">
+					<div class="clearfix">
+						<ul class="list">
+							<li v-for="(i,index) in list_arr" @click="z_index=index" :class="{active:z_index==index}">{{i}}</li>
+						</ul>
+						<div class="list1" v-for="(i,$index) in textarr" v-show="i.index==z_index">
+							<div class="img">
+								<img :src="i.url" class="img1" v-if="i.url" title="暂无数据">
+							</div>
+							<div style="padding-top:15px;">
+								<p class="op">{{i.title}}</p>
+								<br>
+								<span class="text_span">{{i.text}}</span>
+								<div class="price">&yen{{i.price}}</div>
+							</div>
+							<!-- 计算-->
+							<div>
+								<button type="button" class="jian" @click="jian(i,i.uid)">-</button>
+									<span v-if="i.g">{{i.g}}</span>
+									<span v-else>0</span>
+								<button type="button" class="jia" @click="jia(i,i.uid)">+</button>
+							</div>
+							<div v-if="i.g">
+								小计:{{i.price*i.g}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer1">总价钱:{{zongq}}元</div>
+					<router-link :to="{name:'jiesuan',params:{}}">
+						<div class="footer2" @click="btn">结算</div>
+					</router-link>
+					<router-view></router-view>
+				</div>
+			</div>
+		</div>
+		<template id="jiesuan">
+			<div>
+				<div class="jie clearfix">
+					<span class="jesapn">确认订单</span>
+					<ul class="list_jie clearfix">
+						<li></li>
+					</ul>
+				</div> 
+			</div>
+		</template>
+	</body>
+</html>
+
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+	const jiesuan={
+		template:'#jiesuan'
+	}
+
+	const routes=[
+		{
+			path:'/jiesuan',
+			component:jiesuan,
+			name:'jiesuan'
+		}
+	]
+
+	const router=new VueRouter({
+		 routes  
+	})
+	
+    const vm=new Vue({
+		el:'#box',
+		router,
+		data(){
+			return {
+				num:0,
+				z_index:0,
+				g_arr: [], //用来添加购物车
+				list_arr:['水饺','流食','凉菜','包子','庆丰福棕','庆丰特色冷饮','豆浆饮片'],
+				textarr:[
+					{
+						url:'https://i02piccdn.sogoucdn.com/ab27463db7adadd9',
+						title:'猪肉白菜水饺',
+						index:0,
+						text:'月售20份,好评100%',
+						price:12,
+						uid:1
+					},
+					{
+						url:'https://i04piccdn.sogoucdn.com/9a8a859cbf7fd144',
+						title:'虾仁三鲜水饺',
+						index:0,
+						text:'月售10份,好评100%',
+						price:20,
+						uid:2
+					},
+					{
+						url:'https://i02piccdn.sogoucdn.com/a4e37302a9b6143d',
+						title:'绿豆粥',
+						index:0,
+						text:'月售50份,好评85%',
+						price:5,
+						uid:3
+					},
+					{
+						url:'https://i01piccdn.sogoucdn.com/a298b57577b27941',
+						title:'大虾',
+						index:0,
+						text:'月售30份,好评100%',
+						price:80,
+						uid:4
+					},
+					{
+						url:'https://i04piccdn.sogoucdn.com/4528cf890080e280',
+						title:'牛肉面',
+						index:1,
+						text:'月售80份,好评100%',
+						price:12,
+						uid:5
+					},
+					{
+						url:'https://i03piccdn.sogoucdn.com/b7b6f740ed0563da',
+						title:'热干面',
+						index:1,
+						text:'月售48份,好评87.5%',
+						price:12,
+						uid:6
+					},
+					{
+						url:'https://i03piccdn.sogoucdn.com/f3930ba430828bd1',
+						title:'炒面',
+						index:1,
+						text:'月售60份,好评85%',
+						price:12,
+						uid:7
+					},
+					{
+						url:'https://i04piccdn.sogoucdn.com/0161c23d152d4152',
+						title:'香辣鸡腿堡',
+						index:1,
+						text:'月售8份,好评100%',
+						price:10,
+						uid:8
+					},
+					{
+						url:'https://i04piccdn.sogoucdn.com/0d4a7503e6f4e4f3',
+						title:'特色凉菜',
+						index:2,
+						text:'月售8份,好评65%',
+						price:15,
+						uid:9
+					},
+					{
+						url:'https://i01piccdn.sogoucdn.com/2174533703e3c914',
+						title:'鸭脖',
+						index:2,
+						text:'月售42份,好评78%',
+						price:25,
+						uid:10
+					},
+					{
+						url:'https://i02piccdn.sogoucdn.com/7d88596c50a9227f',
+						title:'花生',
+						index:2,
+						text:'月售92份,好评78%',
+						price:10,
+						uid:11
+					},
+					{
+						url:'https://i04piccdn.sogoucdn.com/0161c23d152d4152',
+						title:'香辣鸡腿堡',
+						index:3,
+						text:'月售8份,好评39%',
+						price:10,
+						uid:12
+					},
+					{
+						url:'https://i03piccdn.sogoucdn.com/646980ac8bfabb3d',
+						title:'苹果',
+						index:4,
+						text:'月售8份,好评87%',
+						price:3,
+						uid:13
+					},
+				]
+			}
+		},
+		methods:{
+				jia(json,uid){
+					 console.log(json,uid)
+					let open = true
+					for (let i = 0; i < this.g_arr.length; i++) {
+						if (this.g_arr[i].uid == json.uid) {
+							open = false
+							let num = this.g_arr[i].g
+							  console.log(this.g_arr[i].g)
+							num++
+							this.$set(this.g_arr[i], 'g', num)
+						}
+					}
+					if (open) {
+						this.$set(json, 'g', 1)
+						this.g_arr.push(json)
+						 console.log(json)
+					}
+				},
+				jian(json,uid){
+					for (let i = 0; i < this.g_arr.length; i++) {
+						if (this.g_arr[i].uid ==uid) {
+							let num = this.g_arr[i].g
+							if (num == 0) {
+								num=0
+								return
+							}
+							num--
+							this.$set(this.g_arr[i], 'g', num)
+						}
+					}
+				},	
+				btn(){
+					
+				}
+		},
+		computed:{
+			zongq() {
+				var num = 0;
+				for (let i = 0; i < this.g_arr.length; i++) {
+					num += this.g_arr[i].price * this.g_arr[i].g
+				}
+				return num
+			}
+		}
+	})
+</script>

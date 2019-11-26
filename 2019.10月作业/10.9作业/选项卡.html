@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li {
+				list-style: none;
+				float: left;
+				margin-right: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for="(item,index) in list" @click="tab(index)">{{item.tab}}
+					<div v-show="item.show">
+						{{item.title}}
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		let obj = [{
+				"tab": "选项一",
+				"show": true,
+				"title": "1111"
+			},
+			{
+				"tab": "选项二",
+				"show": false,
+				"title": "2222"
+			},
+			{
+				"tab": "选项三",
+				"show": false,
+				"title": "3333"
+			}
+		];
+		new Vue({
+			el: "#box",
+			data: {
+				list: obj
+			},
+			methods: {
+				tab: function(index) {
+					for(var i = 0; i < this.list.length; i++) {
+						this.list[i].show = false;
+						if(i == index) {
+							this.list[index].show = true;
+						}
+					}
+				}
+			}
+		})
+	</script>
+
+</html>

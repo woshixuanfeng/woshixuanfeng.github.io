@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0 auto;
+			}
+			
+			.no1 {
+				width: 100%;
+				min-height: 300px;
+				background: red;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.no2 {
+				width: 200%;
+				min-height: 300px;
+				background: #ccc;
+				position: absolute;
+				transition: all .3s;
+				top: 0;
+			}
+			.l{
+				width: 70px;
+				line-height: 100px;
+				background: rgba(0,0,0,0.5);
+				position: absolute;
+				left: 0;
+				color: #FFFFFF;
+				text-align: center;
+				font-size: 30px;
+				top: 50%;
+				margin-top: -50px;
+			}
+			.r{
+				width: 70px;
+				line-height: 100px;
+				background: rgba(0,0,0,0.5);
+				position: absolute;
+				right: 0;
+				color: #FFFFFF;
+				text-align: center;
+				font-size: 30px;
+				top: 50%;
+				margin-top: -50px;
+			}
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" v-cloak="">
+			<div style="width: 600px;margin: 0 auto;">
+				<div class="no1" :style="{height:w_height+'px'}">
+					<div class="no2" :style="{width:100*arr.length+'%',left:index*-100+'%'}">
+						<img v-for="i in arr" :src="i" :style="{width:100/arr.length+'%'}" />
+					</div>
+					<div class="l" @click="index++">
+						<
+					</div>
+					<div class="r">
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: "#box",
+			mounted(){
+				var no_2 = document.getElementsByClassName('no2')[0].offsetHeight
+				this.w_height = no_2
+			},
+			data: {
+				arr: [
+					'http://e.hiphotos.baidu.com/image/h%3D300/sign=a9e671b9a551f3dedcb2bf64a4eff0ec/4610b912c8fcc3cef70d70409845d688d53f20f7.jpg',
+					'http://g.hiphotos.baidu.com/image/h%3D300/sign=c029a987df09b3def4bfe268fcbe6cd3/5366d0160924ab18014cefd83bfae6cd7a890b82.jpg',
+					'http://e.hiphotos.baidu.com/image/h%3D300/sign=a9e671b9a551f3dedcb2bf64a4eff0ec/4610b912c8fcc3cef70d70409845d688d53f20f7.jpg',
+				],
+				index:0,
+				w_height:0
+			}
+		})
+	</script>
+
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				text-decoration: none;
+			}
+			
+			#box {
+				width: 100%;
+				min-height: 810px;
+			}
+			
+			.nav {
+				position: absolute;
+				z-index: 9999;
+				width: 100%;
+			}
+			
+			.nav div {
+				display: inline-block;
+				padding: 10px 20px;
+			}
+			
+			a {
+				color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div class="nav">
+				<div>
+					<router-link to='/jk1'>首页</router-link>
+				</div>
+				<div>
+					<router-link to='/jk2'>产品发布</router-link>
+				</div>
+				<div>
+					<router-link to='/jk3'>资讯发布</router-link>
+				</div>
+			</div>
+			<div style="height: 608px;">
+				<router-view></router-view>
+			</div>
+		</div>
+		<template id="lee1">
+			<div style="width: 100%;min-height: 490px;position: relative;">
+				<img style="width: 100%;height: 790px;position: relative;z-index: 2;" src="http://57e243aaa779a.t73.qifeiye.com/qfy-content/uploads/2016/10/f549634402d680ae8cccd5a6039000b5.jpg" />
+				<div style="width: 100%;height: 790px;position: absolute;left: 0px;top: 1px;background: rgba(30,30,30,0.5);z-index: 999;">
+					<div style="color: #000;font-size: 40px;text-align: center;padding-top: 310px;line-height: 1.8;">
+						<p>我们无法做到完美</p>
+						<p>Perfection snot attainable</p>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="lee2">
+			<div>
+				<div style="width: 100%;height: 310px;">
+					<div style="width: 100%;min-height: 310px;position: relative;">
+						<img style="width: 100%;height: 310px;position: relative;z-index: 3;background-repeat: no-repeat;
+    background-size: cover;" src="https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvMDViZjRkNzAxMDU2NTNkNjI2ODQ2NmY4ZGY4NzFmM2YuanBn.jpg">
+						<div style="width: 100%;height: 310px;position: absolute;left: 1px;top: 1px;background: rgba(30,30,30,0.5);z-index: 999;"></div>
+					</div>
+				</div>
+				<div style="width: 100%;min-height: 770px;background-image: url('https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvZGMyODkyNzE4YWUxZTY2NDFmNTlkNmU2YjRjN2JhNmIuanBn.jpg');">
+					<div style="padding: 60px 30%;text-align: center;">
+						<div style="font-size: 36px;font-weight: normal;font-style: normal;color: #3C3C3C;">产品发布</div>
+						<p style="height: 3px;width: 60px;background:#232323;display: inline-block;"></p>
+						<p style="line-height: 1.8;color: #808080;font-size: 16px;">各种产品，销售便宜</p>
+						<img src="https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNGQxZGJmMGU0MTg5YWUxYWU1ZjNmZDkyZjc3OWRhMGItNzY2eDUwMC5wbmc_p_p100_p_3D.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="lee3">
+			<div style="width: 100%;,min-height: 310px;position: relative;">
+				<img style="width: 100%;height: 310px;position: relative;z-index: 3;" src="https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOTk4ZGE5MWY4MGZiNDg3NjU4MjI2MDQ1NzBhY2RmNDYuanBn.jpg" alt="" />
+				<div style="width: 100%;height: 310px;position: absolute;left: 1;top: 1;background: rgba(30,30,30,0.5);z-index: 999;">
+				</div>
+			</div>
+		</template>
+		<template id="jk1">
+			<div>
+				<lee1></lee1>
+			</div>
+		</template>
+		<template id="jk2">
+			<div>
+				<lee2></lee2>
+			</div>
+		</template>
+		<template id="jk3">
+			<div>
+				<lee3></lee3>
+				<div style="padding: 1 11%;">
+					<div style="border-bottom: 1px dashed #90AF6B;font-size: 18px;height: 48px;line-height: 48px;width: 190px;text-align: left;padding-left: 22px;box-sizing: border-box;">
+						<a style="color: #555;" href="#jk3/jk1">全部发布</a>
+					</div>
+					<div style="border-bottom: 1px dashed #90AF6B;font-size: 18px;height: 48px;line-height: 48px;width: 190px;text-align: left;padding-left: 22px;box-sizing: border-box;">
+						<a style="color: #555;" href="#jk3/jk2">公司新闻</a>
+					</div>
+					<div style="border-bottom: 1px dashed #90AF6B;font-size: 18px;height: 48px;line-height: 48px;width: 190px;text-align: left;padding-left: 22px;box-sizing: border-box;">
+						<a style="color: #555;" href="#jk3/jk3">行业咨询</a>
+					</div>
+				</div>
+				<div style="display: inline-block;">
+					<router-view></router-view>
+				</div>
+			</div>
+		</template>
+		<template id="jk4">
+			<div>
+				1
+			</div>
+		</template>
+		<template id="jk5">
+			<div>
+				2
+			</div>
+		</template>
+		<template id="jk6">
+			<div>
+				3
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script src="vue-resource.js"></script>
+	<script src="vue-router.js"></script>
+	<script>
+		Vue.component('lee1', {
+			template: "#lee1"
+		})
+		Vue.component('lee2', {
+			template: "#lee2"
+		})
+		Vue.component('lee3', {
+			template: "#lee3"
+		})
+
+		var jk1 = {
+			template: "#jk1",
+			data() {
+				return{
+					arr:[{
+						txt: '但追求完美能让人卓越',
+						txt2: 'but if we chase it we can catch excellence.'
+					}, 
+					{
+						txt: '我们无法做到完美，  但追求完美能让人卓越',
+						txt2: 'Perfection’snot attainable, but if we chase it we can catch excellence.'
+					}, 
+					{
+						txt: '我们无法做到完美',
+						txt2: 'but if we chase it we can catch excellence.'
+					},
+				    ]
+				}
+			}
+		}
+		var jk2 = {
+			template: "#jk2"
+		}
+		var jk3 = {
+			template: '#jk3'
+		}
+		var jk4 = {
+			template: '#jk4'
+		}
+		var jk5 = {
+			template: '#jk5'
+		}
+		var jk6 = {
+			template: '#jk6'
+		}
+		var routes = [{
+				path: '/jk1',
+				component: jk1
+			},
+			{
+				path: '/jk2',
+				component: jk2,
+			},
+
+			{
+				path: '/jk3',
+				component: jk3,
+				children: [{
+						path: 'jk1',
+						component: jk4
+					},
+					{
+						path: 'jk2',
+						component: jk5
+					},
+					{
+						path: 'jk3',
+						component: jk6
+					}
+				]
+
+			}
+		]
+		var router = new VueRouter({
+			routes
+		})
+		new Vue({
+			el: '#box',
+			router,
+
+		})
+	</script>
+
+</html>
