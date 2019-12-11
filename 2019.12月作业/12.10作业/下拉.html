@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			[v-cloak]{
+				display: none;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		    html,body{
+		    	width: 100%;
+		    	height: 100%;
+		    	background: #CCCCCC;
+		    }
+		    .no1{
+		    	min-height: 800px;
+		    	background: #FFFFFF;
+		    	position: absolute;
+		    	top: 0;
+		    	left: 0;
+		    	width: 100%;
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="box" v-cloak="">
+			 <div style="text-align: center;">
+			  加载中。。。。
+			  </div>
+			 <div class="no1" v-lee>
+			  	 
+			  </div>
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.directive('lee',(a)=>{
+			a.onmousedown = function(ev){
+				var inY = ev.clientY
+				document.onmousemove = function(ev){
+					var dY = ev.clientY
+					if(dY-inY>0){
+						var num = dY-inY
+						if(dY-inY>200){
+							num = 200
+						}
+						a.style.top =num +'px'
+						
+						console.log('下拉')
+					}	
+				}
+				window.onmouseup = function(){
+					
+					document.onmousemove = ''
+				}
+			}
+		})
+		
+		new Vue({
+			el:"#box"
+		})
+	</script>
+</html>

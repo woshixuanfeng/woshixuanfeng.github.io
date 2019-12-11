@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="box" v-drag.l.t="flag"></div>
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.directive("drag",(el,{modifiers,value})=>{
+			let{l,t}=modifiers;
+            el.addEventListener("mousedown",handleDownCb)
+ 
+            let disX,disY;
+            function handleDownCb(e){
+                disX=e.offsetX;
+                disY=e.offsetY;
+                   console.log(disX,disY)
+                document.addEventListener("mousemove",handleMoveCb);
+                document.addEventListener("mouseup",handleUpCb);
+            }
+ 
+            function handleMoveCb(e){
+                let x=e.clientX-disX;
+                let y=e.clientY-disY;
+                if((l&&t) && value){
+                    el.style.left=x+"px";                    
+                    el.style.top=y+"px";
+                    return;
+                }
+ 
+                if(l&&value){
+                    el.style.left=x+"px";                    
+                    return;
+                }
+                if(t&&value){
+                    el.style.top=y+"px";
+                    return;
+                }
+            }
+             function handleUpCb(){
+                document.removeEventListener("mousemove",handleMoveCb);
+                document.removeEventListener("mouseup",handleUpCb);
+            }
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				flag:true
+			}
+		})
+	</script>
+</html>
