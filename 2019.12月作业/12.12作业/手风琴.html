@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box">
+			<div style="text-align: center;">
+			<collapse>
+				<collapse-item title="react">内容1</collapse-item>
+				<collapse-item title="vue">内容2</collapse-item>
+				<collapse-item title="nodejs">内容2</collapse-item>
+			</collapse>
+			</div>
+			
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('Collapse', {
+			methods: {
+				cut(childId) {
+					this.$children.forEach(child => {
+						console.log('ci', child._uid)
+						if(child._uid !== childId) {
+							child.show = false;
+						}
+					});
+				}
+			},
+			template: `<div class="wrap">
+              <slot></slot> 
+              </div>`
+		})
+		Vue.component('CollapseItem', {
+			props: ['title'],
+			data() {
+				return {
+					show: false
+				}
+			},
+			methods: {
+				change() {
+					console.log(this._uid)
+					this.$parent.cut(this._uid);
+					this.show = !this.show;
+				}
+			},
+			template: `<div>
+                <div class="title" @click="change">{{title}}</div>
+                <div v-show="show">
+                  <slot></slot>  
+            </div>
+         </div>`
+		})
+
+		new Vue({
+			el: "#box"
+		})
+	</script>
+
+</html>

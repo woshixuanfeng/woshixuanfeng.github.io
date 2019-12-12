@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" v-cloak="">
+			<a-lee>
+				<div slot="no1">				
+				 hello	
+				</div>
+				<div slot="no2">
+				 你好
+				</div>
+				
+			</a-lee>
+			<!--<component is="a-lee"></component>-->
+		</div>
+		<template id="lee">
+			<div>
+				<slot name="no1"></slot>
+				<button @click="a++">你点击了{{a}}次</button>
+				<slot name="no2"></slot>
+			</div>
+
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('aLee', {
+			template: '#lee',
+			data(){
+				return{
+					a:0
+				}
+			}
+		})
+		new Vue({
+			el: "#box",
+			data: {
+				a: 12
+			}
+		})
+	</script>
+
+</html>
