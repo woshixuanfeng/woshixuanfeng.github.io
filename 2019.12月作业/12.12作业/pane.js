@@ -2,7 +2,7 @@ Vue.component('pane', {
 	template: `
  <div class="pane" v-if="show">
   <slot></slot>
- </div>`
+ </div>`,
 	props: {
 		name: {
 			type: String
