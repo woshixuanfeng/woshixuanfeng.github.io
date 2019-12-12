@@ -1,8 +1,7 @@
 Vue.component('pane', {
-	name: '#pane',
 	template: `
  <div class="pane" v-if="show">
-  <slot> </slot>
+  <slot></slot>
  </div>`
 	props: {
 		name: {
