@@ -3,8 +3,7 @@ Vue.component('pane', {
 	template: `
  <div class="pane" v-if="show">
   <slot> </slot>
- </div>
- `
+ </div>`
 	props: {
 		name: {
 			type: String
@@ -19,7 +18,7 @@ Vue.component('pane', {
 		}
 	},
 
-	data: function() {
+	data() {
 		return {
 			show: true
 		}
