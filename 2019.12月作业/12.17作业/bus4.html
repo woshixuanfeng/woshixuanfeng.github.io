@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<kje></kje>
+		</div>
+		<template id="kje">
+			<div>
+				<button @click="btn">{{num}}</button>
+				no2 
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		var bus = new Vue()
+		Vue.component('kje',{
+			template:"#kje",
+			data(){
+				return{
+					num:0
+				}
+			},
+			methods:{
+				btn(){
+					this.num++
+					bus.$emit('no2',this.num)
+				}
+			},
+			mounted(){
+				bus.$on('no1',(a)=>{
+					this.num = a
+					console.log(a)
+				})
+			}
+		})
+		new Vue({
+			el:"#box"
+		})
+	</script>
+</html>

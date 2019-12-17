@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			  <div style="height: 50px;background: #CCCCCC;text-align: center;line-height: 50px;">
+			  	 {{$route.params.type}}
+			  </div>
+			  <!--<button @click="btn(1)">上一步</button>
+			  <button @click="btn(-1)">下一步</button>-->
+			  <keep-alive>
+			  	<router-view></router-view>
+			  </keep-alive>
+			  
+		</div>
+		<template id="no1">
+			<div>
+			  <div v-for="i in 10">
+			  	<a :href="'#/no2/书籍详情/'+i">
+			  		 跳转到{{i}}
+			  	</a>
+			  </div>
+				  
+			</div>
+		</template>
+		<template id="no2">
+			<div>
+				   {{$route.params.uid}}
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script src="vue-router.js"></script>
+	<script>
+		
+		var router = new VueRouter({
+				routes:[
+				 {path:'/',redirect:'/no1/古言'},
+				 {path:'/no1/:type',component:{template:'#no1'}},
+				 {path:'/no2/:type/:uid',component:{template:'#no2'}},
+				]
+			})
+		new Vue({
+			el:"#box",
+			router,
+			methods:{
+			   btn(a){
+			   	 router.go(a)
+			   }
+			},
+			mounted(){
+				console.log(this.$route.path)
+			},
+			watch:{
+				'$route.params.type'(a,b){
+					console.log(a,b)
+				}
+			}
+		})
+	</script>
+</html>

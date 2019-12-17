@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<div>这是父组件的parentArray：{{parent}}</div>
+            <my-component-sync :child.sync="parent"></my-component-sync>
+		</div>
+	</body>
+    <script src="vue.js"></script>
+    <script>
+    	Vue.component('myComponentSync', {
+            template: `<div>这是接收了父组件传递值的子组件的child: {{child}} <br>
+              <button type="button" @click="change">
+              点击我改变父元素的parent</button>
+            </div>`,
+            props: ['child'],
+            data() {
+                return {
+                    counter: this.child
+                }
+            },
+            methods: {
+                change() {
+                    this.counter++
+                    this.$emit('update:child', this.counter)
+                }
+            }
+        })
+        new Vue({
+            el: '#box',
+            data: {
+                parent: 0
+            }
+        })
+    </script>
+</html>

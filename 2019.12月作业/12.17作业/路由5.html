@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			[v-cloak] {
+				display: none;
+			}
+			
+			.no1 {
+				height: 50px;
+				background: #CCCCCC;
+				line-height: 50px;
+				padding: 0 200px;
+			}
+			
+			.no1 span {
+				display: inline-block;
+				margin: 0 10px;
+			}
+			
+			.no2 {
+				min-height: 500px;
+				padding: 0 150px;
+			}
+			
+			.no3 {
+				height: 150px;
+				background: #CCCCCC;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" v-cloak="">
+			<div class="no1">
+				<span>
+				 	<a href="#/">
+				 		首页
+				 	</a>
+				 </span>
+				<span>
+				 	<a href="#/no2/222/555/type/444">
+				 		产品介绍
+				 	</a>
+				 </span>
+			</div>
+			<div class="no2">
+				{{$route.params}}
+				<router-view></router-view>
+			</div>
+			<div class="no3">
+
+			</div>
+		</div>
+		<template id="c_no1">
+			<div>
+				首页
+				
+			</div>
+		</template>
+		<template id="c_no2">
+			<div style="overflow: hidden;">
+				<div style="float: left;width: 200px;line-height: 50px;">
+					<div>
+						<a href="#/no2/type/窗户">
+							窗户
+						</a>	
+					</div>
+					<div>
+						<a href="#/no2/type/门系列">
+							门系列
+						</a>	
+						
+					</div>
+					<div>
+						<a href="#/no2/type/阳光房">
+							阳光房
+						</a>	
+					</div>
+				</div>
+				<div style="float: left;">
+					<router-view/>
+				</div>
+			</div>
+		</template>
+		<template id="types">
+			<div>
+				{{$route.params}}
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script src="vue-router.js"></script>
+	<script>
+		var router = new VueRouter({
+			routes: [{
+					path: '/',
+					component: {
+						template: '#c_no1'
+					}
+				},
+				{
+					path: '/no2/:id/:b',
+					component: {
+						template: '#c_no2'
+					},
+					children: [
+					   {path:'type/:cc',component:{template:'#types'}}
+					]
+				}
+			]
+		})
+		new Vue({
+			el: "#box",
+			router
+		})
+	</script>
+
+</html>

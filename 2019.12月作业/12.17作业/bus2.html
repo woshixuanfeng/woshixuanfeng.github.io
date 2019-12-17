@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<no1></no1>
+			<no2></no2>
+		</div>
+		<template id="no1">
+			<div>
+				<button @click="btn">{{num}}</button>
+				no1
+			</div>
+		</template>
+		<template id="no2">
+			<div>
+				<button @click="btn">{{num}}</button>
+				no2
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		var bus = new Vue()
+		Vue.component('no1',{
+			template:'#no1',
+			data(){
+				return{
+					num:0
+				}
+			},
+			methods:{
+				btn(){
+					this.num++
+					bus.$emit('no1',this.num)
+				}
+			},
+			mounted(){
+				bus.$on('no2',(a)=>{
+					this.num = a
+					console.log(a)
+				})
+			}
+		})
+		Vue.component('no2',{
+			template:'#no2',
+			data(){
+			return {
+				num:0
+			}
+			},
+			methods:{
+				btn(){
+					this.num++
+					bus.$emit('no2',this.num)
+				}
+			},
+			mounted(){
+				bus.$on('no1',(a)=>{
+					this.num = a
+					console.log(a)
+				})
+			}
+		})
+		new Vue({
+			el:"#box"
+		})
+	</script>
+</html>

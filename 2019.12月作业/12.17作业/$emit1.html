@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			父级
+			{{a}}
+			<lee :boxs="a" @lee="lee"></lee>
+		</div>
+		<template id="lee">
+			<div>
+				<button @click="btn">++</button>
+				子级
+				{{a}}
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('lee',{
+			template:"#lee",
+			props:['boxs'],
+			data(){
+				return {
+					a:this.boxs
+				}
+			},
+			methods:{
+				btn(){
+					this.a++
+					this.$emit('lee',this.a)
+				}
+			}
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				a:0
+			},
+			methods:{
+				lee(a){
+					this.a = a
+					console.log(a)
+				}
+			}
+		})
+	</script>
+</html>

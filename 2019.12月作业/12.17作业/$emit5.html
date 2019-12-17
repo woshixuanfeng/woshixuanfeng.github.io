@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="emit-example-argument">
+			<magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball> 
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('magic-eight-ball', {
+			data: function() {
+				return {
+					possibleAdvice: ['Yes', 'No', 'Maybe']
+				}
+			},
+			methods: {
+				giveAdvice: function() {
+					var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+					//【1】在组件绑定的方法giveAdvice中触发$emit事件，并抛出参数
+					this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+				}
+			},
+			template: `
+    <button v-on:click="giveAdvice">
+      Click me for advice
+    </button>
+  `
+		})
+		new Vue({
+			el: '#emit-example-argument',
+			methods: {
+				showAdvice: function(advice) { // 【3】方法的参数 advice 用来接收 $emit 抛出的参数
+					alert(advice)
+				}
+			}
+		})
+	</script>
+
+</html>

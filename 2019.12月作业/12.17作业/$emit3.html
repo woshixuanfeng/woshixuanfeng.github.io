@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<div>{{toCity}}</div>
+			<train-city :send-data='toCity' @show='updateCity'></train-city>
+		</div>
+		<template id="test">
+			<div>
+				<div class="train-city">
+					<h3>父组件传给子组件的tocity:{{sendData}}</h3>
+					<button @click="select('大连')">点击此处将'大连'发射给父组件</button>
+				</div>
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('train-city',{
+			template:"#test",
+			props:['sendData'],
+			methods:{
+				select(val){
+					let data = {
+						cityname:val
+					}
+					this.$emit('show',data)
+				}
+			}
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				toCity:'北京'
+			},
+			methods:{
+				updateCity(data){
+					console.log(data)
+					this.toCity=data.cityname
+					console.log('toCity:'+this.toCity)
+				}
+			}
+		})
+	</script>
+</html>

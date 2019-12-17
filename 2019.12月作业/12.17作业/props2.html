@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<lee :boxs='a'></lee>
+		</div>
+		<template id="lee">
+			<div>
+				{{a}}
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('lee',{
+			template:'#lee',
+			props:['boxs'],
+			data(){
+				return{
+					a:this.boxs
+				}
+			}
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				a:'王俊硕'
+			}
+		})
+	</script>
+</html>

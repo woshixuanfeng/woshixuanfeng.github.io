@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div style="height: 60px;background: #CCCCCC;">
+				<div style="float: left;line-height: 60px;padding: 0 10px;" v-for="i in arr">
+					<a :href="i.path">
+						{{i.name}}
+					</a>
+				</div>
+			</div>
+			<div style="min-height: 500px;">
+				<router-view></router-view>
+			</div>
+			<div style="height: 160px;background: #CCCCCC;">
+
+			</div>
+		</div>
+		<template id="no1">
+			<div>
+				首页
+			</div>
+		</template>
+		
+		<template id="no2">
+			<div>
+				关于
+			</div>
+		</template>
+		<template id="no3">
+			<div>
+				茶叶
+			</div>
+		</template>
+		<template id="no4">
+			<div>
+				基地
+			</div>
+		</template>
+		<template id="no5">
+			<div>
+				<div style="min-height: 200px;background: burlywood;">
+				</div>
+				<div style="overflow: hidden;padding: 10px 20px;">
+					<div style="width: 200px;min-height: 500px;background: brown;float: left;">
+						<div style="text-align: center;line-height: 40px;border-bottom: 1px solid greenyellow;">
+							<a href="#/no5">
+								全部新闻
+							</a>
+						</div>
+						<div style="text-align: center;line-height: 40px;border-bottom: 1px solid greenyellow;">
+							<a href="#/no5/no2">
+								新茶动态
+							</a>
+						</div>
+						<div style="text-align: center;line-height: 40px;border-bottom: 1px solid greenyellow;">
+							<a href="#/no5/no3">
+								产品新闻
+							</a>
+						</div>
+					</div>
+					<div style="float: left;padding: 10px 20px;">
+						<router-view></router-view>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="no6">
+			<div>
+				联系
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script src="vue-router.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script>
+		
+		var router = new VueRouter({
+			routes: [{
+					path: '/',
+					component: {
+						template: '#no1'
+					}
+				},
+				{
+					path: '/no2',
+					component: {
+						template: '#no2'
+					}
+				},
+				{
+					path: '/no3',
+					component: {
+						template: '#no3'
+					}
+				},
+				{
+					path: '/no4',
+					component: {
+						template: '#no4'
+					}
+				},
+				{
+					path: '/no5',
+					component: {
+						template: '#no5'
+					},
+					children: [{
+							path: '/',
+							component: {
+								template: '<p>全部新闻</p>'
+							}
+						},
+						{
+							path: 'no2',
+							component: {
+								template: '<p>新茶动态</p>'
+							}
+						},
+						{
+							path: 'no3',
+							component: {
+								template: '<p>产品新闻</p>'
+							}
+						},
+					]
+				},
+				{
+					path: '/no6',
+					component: {
+						template: '#no6'
+					}
+				},
+			]
+		})
+		new Vue({
+			el: "#box",
+			data: {
+				arr: [{
+						name: '首页',
+						path: '#/'
+					},
+					{
+						name: '关于',
+						path: '#/no2'
+					},
+					{
+						name: '茶叶',
+						path: '#/no3'
+					},
+					{
+						name: '基地',
+						path: '#/no4'
+					},
+					{
+						name: '新闻',
+						path: '#/no5'
+					},
+					{
+						name: '联系',
+						path: '#/no6'
+					},
+				]
+			},
+			router
+		})
+	</script>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.co{
+				background: #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<lee style="width: 300px;float: left;":box_arr="arr"></lee>
+			<lee :box_arr="arr2" style="width: 300px;float: left;"v-for="i in 1"></lee>
+		</div>
+		<template id="lee">
+			<div>
+				<div style="height: 50px;line-height: 60px;border-bottom: 1px solid #CCCCCC;">
+					 <div v-for="(i,$index) in arr" style="float: left;padding: 2px 22px;"@click="index=$index" :class="index == $index?'co':''">
+					 	{{i.title}}
+					 </div>
+				</div>
+				<div v-for="(i,$index) in arr" v-show="index == $index">
+					   {{i.content}}
+				</div>
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('lee',{
+			template:'#lee',
+			props:['box_arr'],
+			data(){
+				return{
+					index:0,
+					arr:this.box_arr
+				}
+			}
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				arr:[
+				   {title:'no1',content:'c1'},
+				   {title:'no2',content:'c2'},
+				   {title:'no3',content:'c3'}
+				],
+				arr2:[
+				  {title:'表一',content:'c1'},
+				  {title:'表二',content:'c2'},
+				  {title:'表三',content:'c3'}
+				]
+			} 
+		})
+	</script>
+</html>

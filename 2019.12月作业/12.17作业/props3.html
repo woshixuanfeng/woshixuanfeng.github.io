@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<button @click="a++">点击</button>
+			<lee :boxs="a"></lee>
+		</div>
+		<template id="lee">
+			<div>
+				<button @click="a++">点击{{boxs}}</button>
+				{{a}}
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('lee',{
+			template:'#lee',
+			props:['boxs'],
+			data(){
+				return{
+					a:this.boxs
+				}
+			}
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				a:0
+			}
+		})
+	</script>
+</html>

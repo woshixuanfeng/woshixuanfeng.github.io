@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.nav {
+				overflow: hidden;
+				list-style: none;
+				padding-left: 280px;
+			}
+			
+			.nav li {
+				float: left;
+				padding: 0 15px;
+			}
+			
+			.nav li a {
+				color: #FFFFFF;
+			}
+			
+			[v-cloak] {
+				display: none;
+			}
+			
+			.a {
+				color: #00B7FF !important;
+			}
+			
+			.list {
+				line-height: 50px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" v-cloak="">
+			<div style="line-height: 50px;height: 50px;background: #CCCCCC;">
+				<ul class="nav">
+					<li v-for="i in nav_arr">
+						<a :href="'#'+i.path" :class="$route.path==i.path?'a':''">
+							{{i.title}}
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div style="min-height: 500px;">
+				<router-view></router-view>
+			</div>
+			<div style="height: 150px;background: #CCCCCC;">
+
+			</div>
+		</div>
+		<template id="no3">
+			<div>
+				<texts style="padding: 10px;"></texts>
+			</div>
+		</template>
+		<template id="no4">
+			<div>
+				<content_text></content_text>
+			</div>
+		</template>
+		<template id="content_text">
+			<div>
+				<div v-for="i in list_arr" v-if="i.name == $route.params.title">
+					<button @click="$router.go(-1)">返回</button>
+					<h3>{{i.name}}</h3>
+					<div>
+						{{i.text}}
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="text">
+			<div style="overflow: hidden;">
+				<div style="width: 20%;float: left;min-height: 500px;background: #CCCCCC;">
+					<div class="list" @click="index=0">
+						全部发布
+					</div>
+					<div class="list" @click="index=1">
+						公司新闻
+					</div>
+					<div class="list" @click="index=2">
+						行业资讯
+					</div>
+				</div>
+				<div style="width: 70%;float: left;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/no4/'+i.name">
+							<h4>{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script src="vue-router.js"></script>
+	<script>
+		Vue.component('content_text', {
+			template: '#content_text',
+			data() {
+				return {
+					list_arr: [{
+						type: '1',
+						name: ' 北京130多家工业企业采取停限产措施应对雾霾',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWVmMDY3ODQ0ZDIzZmFiZDA2Y2NkNjVkZGY2MWQyZDgtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}, {
+						type: '1',
+						name: '三大能源停征价格调节基金为煤炭资源税改革清路',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}, {
+						type: '2',
+						name: '排污费价格要高于治污成本',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}]
+				}
+			}
+		})
+
+		Vue.component('texts', {
+			template: '#text',
+			computed: {
+				c_arr() {
+					var arr = []
+					if(this.index == 0) {
+						arr = this.list_arr
+					} else {
+						for(var i = 0; i < this.list_arr.length; i++) {
+							if(this.index == this.list_arr[i].type) {
+								arr.push(this.list_arr[i])
+							}
+						}
+					}
+					return arr
+				}
+			},
+			data() {
+				return {
+					index: 0,
+					list_arr: [{
+						type: '1',
+						name: ' 北京130多家工业企业采取停限产措施应对雾霾',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWVmMDY3ODQ0ZDIzZmFiZDA2Y2NkNjVkZGY2MWQyZDgtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}, {
+						type: '1',
+						name: '三大能源停征价格调节基金为煤炭资源税改革清路',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}, {
+						type: '2',
+						name: '排污费价格要高于治污成本',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}]
+				}
+			}
+		})
+		var router = new VueRouter({
+			routes: [{
+					path: '/',
+					component: {
+						template: '<div>首页</div>'
+					}
+				},
+				{
+					path: '/no2',
+					component: {
+						template: '<div>产品发布</div>'
+					}
+				},
+				{
+					path: '/no3',
+					component: {
+						template: '#no3'
+					},
+				},
+				{
+					path: '/no4/:title',
+					component: {
+						template: '#no4'
+					},
+				},
+			]
+		})
+
+		new Vue({
+			el: "#box",
+			router,
+			data: {
+				nav_arr: [{
+						title: "首页",
+						path: '/'
+					},
+					{
+						title: "产品发布",
+						path: '/no2'
+					},
+					{
+						title: "资讯发布",
+						path: '/no3'
+					}
+				]
+			}
+		})
+	</script>
+
+</html>

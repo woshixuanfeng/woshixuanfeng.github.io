@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div style="height: 50px;background: #cccccc;">
+            <router-link to="/">王俊硕</router-link>
+            <router-link to="/no2">王俊悦</router-link>
+            <router-link to="/no3">羿世俊</router-link>
+        </div>
+        <div style="min-height: 500px;padding: 20px 150px;">
+            <router-view></router-view>
+        </div>
+        <div style="height: 150px;background: #cccccc;">
+
+        </div>
+    </div>
+    <template id="no1">
+        <div>
+            王俊硕
+        </div>
+    </template>
+    <template id="no2">
+        <div>
+            王俊悦
+            <div>
+                <a href="#/no2">身高</a>
+                <a href="#/no2/no2">体重</a>
+                <a href="#/no2/no3">年龄</a>
+                <router-view></router-view>
+
+            </div>
+        </div>
+    </template>
+    <template id="no3">
+        <div>
+            羿世俊
+        </div>
+    </template>
+    <template id="no2_1">
+        <div>
+            80cm
+        </div>
+    </template>
+    <template id="no2_2">
+        <div>
+            40kg
+        </div>
+    </template>
+    <template id="no2_3">
+        <div>
+            4岁
+        </div>
+    </template>
+</body>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    var no1 = {
+        template: "#no1"
+    }
+    var no2 = {
+        template: "#no2"
+    }
+    var no3 = {
+        template: "#no3"
+    }
+
+    var routes = [{
+        path: '/',
+        component: no1
+    },
+    {
+        path: '/no2',
+        component: no2,
+        children: [
+            { path: '/', component: { template: '#no2_1' } },
+            { path: 'no2', component: { template: '#no2_2' } },
+            { path: 'no3', component: { template: '#no2_3' } }
+        ]
+    },
+    {
+        path: '/no3',
+        component: no3
+    }]
+
+    var router = new VueRouter({
+        routes
+    })
+    new Vue({
+        el: "#box",
+        router,
+        watch: {
+            '$route.path'(a, b) {
+                console.log(a, b)
+            }
+        }
+    })
+</script>
+
+</html>

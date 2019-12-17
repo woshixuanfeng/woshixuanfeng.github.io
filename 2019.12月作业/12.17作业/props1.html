@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<lee :box_arr="arr"></lee>
+		</div>
+		<template id="no1">
+			<div>
+				<div v-for="(i,$index) in arr">
+					<div @click="type=$index">{{i.title}}</div>
+					<lee :box_arr="i.arr" style="margin-left: 50px;"v-show="type==$index"></lee>
+				</div>
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		Vue.component('lee',{
+			template:"#no1",
+			props:['box_arr'],
+			data(){
+				return{
+					arr:this.box_arr,
+					type:0,
+				}
+			}
+		})
+		new Vue({
+			el:"#box",
+			data:{
+				arr:[{
+					title:'辽宁省',
+					arr:[{
+						title:'沈阳市',
+						arr:[{
+							title:'沈北新区'
+						},{
+						    title:'新民县'	
+						}]	
+					},
+					{
+						title:'大连市',
+						arr:[{
+							title:'旅顺县'
+						},{
+						    title:'瓦房店市'	
+						}]	
+					}
+				]
+			},
+			{
+						title: '河南省',
+						arr: [{
+								title: '郑州市',
+								arr: [{
+									title: '高新区'
+								}, {
+									title: '回管区'
+								}]
+							},
+							{
+								title: '新乡市',
+								arr: [{
+									title: '原阳县'
+								}, {
+									title: '小吉县'
+								}]
+							}
+						]
+					}
+		  ]}
+	})
+	</script>
+</html>
