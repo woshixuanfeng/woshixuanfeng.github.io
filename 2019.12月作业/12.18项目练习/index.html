@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="swiper/dist/css/swiper.min.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			[v-cloak] {
+				display: none;
+			}
+			
+			.swiper-pagination .swiper-pagination-bullet {
+				width: 60px;
+				height: 10px;
+				background: black;
+				border-radius: 0;
+			}
+			
+			.list {
+				line-height: 50px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" v-cloak="">
+			<div>
+				<a href="https://57a7e6aaf2f78.t73.qifeiye.com/">
+					<img style="max-height: 34px;width: 206px;margin-left: 40px;margin-top: 45px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvYTNkMjAyZDQ0M2I5NzNiYThiYjkyNGUzYWU3N2UzYjYucG5n.png" />
+				</a>
+
+			</div>
+			<div style="height:30px;float: right;">
+				<a href="#/" style="float: left;margin-right: 70px;margin-top: -16px;color: #CCCCCC;">首页</a>
+				<a href="#/no2" style="float: left;margin-right: 70px;margin-top: -16px;color: #CCCCCC;">产品系列</a>
+				<a href="#/no3" style="float: left;margin-right: 70px;margin-top: -16px;color: #CCCCCC;">新闻中心</a>
+				<a href="#/no4" style="float: left;margin-right: 70px;margin-top: -16px;color: #CCCCCC;">加入我们</a>
+				<a href="#/no5" style="float: left;margin-right: 70px;margin-top: -16px;color: #CCCCCC;">联系方式</a>
+			</div>
+			<div style="min-height:500px">
+				<router-view></router-view>
+			</div>
+			<div style="height:130px;">
+				<div class="section-background-overlay background-overlay grid-overlay-0 " style="background-color: transparent;"></div>
+				<div class="container" style="position: relative;z-index: 3;width: auto !important;">
+					<div style="position: relative;" class="column_inner">
+						<div class=" background-overlay grid-overlay-" style="background-color:transparent;width:100%;"></div>
+						<div class="column_container" style="z-index: 3;position: relative;">
+							<div style="position: relative;">
+								<div style="text-align: left;margin-top: 60px;">
+									<span style="color: #696969;">
+			    	  				<span style="font-size: 18px;">
+			    	  				   <span style="font-family: 宋体;">
+			    	  				   	  <span style="font-family:微软雅黑;margin-left: 50px;">关于产品</span>
+									</span>
+									</span>
+									</span>
+								</div>
+							</div>
+							<div style="text-align: left;">
+								<span style="color: #A9A9A9;">
+			    	  			<span style="letter-spacing: 1px;">
+			    	  				<span style="font-size: 13px;margin-left: 50px;">
+			    	  					<span style="font-family:times new roman;">about color</span>
+								</span>
+								</span>
+								</span>
+							</div>
+						</div>
+						<div style="position: relative;">
+							<div style="text-align: left;">
+								<span style="font-family: '微软雅黑';">
+			    	  			<span style="color: #bbbbbb;">
+			    	  				<span style="font-size:12px;margin-left: 50px;">所有商品均为实物拍摄，各浏览器<br />
+			    	  					<span style="margin-left: 50px;">显示有所不同，对此要求高的买家</span><br /><span style="margin-left: 50px;">慎拍</span>
+								</span>
+								</span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="position: relative;">
+					<div class=" background-overlay grid-overlay-" style="background-color:transparent;width:100%;"></div>
+					<div class="column_container" style="z-index: 3;position: relative;">
+						<div style="position: relative;">
+							<div style="text-align: left;margin-top: -106px;">
+								<span style="font-family: '微软雅黑';">
+					  		  	<span style="color: #696969;">
+					  		  		<span style="font-size:18px;margin-left: 300px;">关于退货</span>
+								</span>
+								</span>
+							</div>
+						</div>
+						<div style="text-align: left;">
+							<span style="color: #A9A9A9;">
+			    	  			<span style="letter-spacing: 1px;">
+			    	  				<span style="font-size: 13px;margin-left: 300px;">
+			    	  					<span style="font-family:times new roman;">about change</span>
+							</span>
+							</span>
+							</span>
+						</div>
+					</div>
+					<div style="position: relative;">
+						<div style="text-align: left;">
+							<span style="font-family: '微软雅黑';">
+			    	  			<span style="color: #bbbbbb;">
+			    	  				<span style="font-size:12px;margin-left: 300px;">本店商品均为易碎品，非质量问题<br />
+			    	  					<span style="margin-left: 300px;">谢绝退换，如有质量问题，本店承</span><br /><span style="margin-left: 300px;">担运费调换</span>
+							</span>
+							</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="position: relative;">
+				<div class=" background-overlay grid-overlay-" style="background-color:transparent;width:100%;"></div>
+				<div class="column_container" style="z-index: 3;position: relative;">
+					<div style="position: relative;">
+						<div style="text-align: left;margin-top: -128px;">
+							<span style="font-family: '微软雅黑';">
+					  		  	<span style="color: #696969;">
+					  		  		<span style="font-size:18px;margin-left: 550px;">关于产品</span>
+							</span>
+							</span>
+						</div>
+					</div>
+					<div style="text-align: left;">
+						<span style="color: #A9A9A9;">
+			    	  			<span style="letter-spacing: 1px;">
+			    	  				<span style="font-size: 13px;margin-left: 550px;">
+			    	  					<span style="font-family:times new roman;">about change</span>
+						</span>
+						</span>
+						</span>
+					</div>
+				</div>
+				<div style="position: relative;">
+					<div style="text-align: left;">
+						<span style="font-family: '微软雅黑';">
+			    	  			<span style="color: #bbbbbb;">
+			    	  				<span style="font-size:12px;margin-left: 550px;">本店商品均为易碎品，非质量问题<br />
+			    	  					<span style="margin-left: 550px;">谢绝退换，如有质量问题，本店承</span><br /><span style="margin-left: 550px;">担运费调换</span>
+						</span>
+						</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div style="text-align: center;margin-top: 40px;">
+				<span style="color: #A9A9A9;">
+   	  <span style="font-size: 13px;">
+   	  	<span style="font-family:times new roman;">Copyright © 2010-2015</span>
+				<span style="font-family: '宋体';">
+   	  		<span style="font-family:微软雅黑;">花语文化传播有限公司</span>
+				<span style="font-family:times new roman;"> All rights reserved</span>
+				</span>
+				</span>
+				</span>
+			</div>
+		</div>
+		</div>
+		<template id="no1">
+			<div>
+				<div class="column_containter" style="z-index: 3;position: relative;">
+					<div style="position: relative;">
+						<h1 style="text-align: center;">    		
+               	    			<div style="display: inline-block;position: relative;max-width: 100%;width: 100%;">
+               	    				<a href="#">
+               	    					<div style="display: inline-block;position: relative;max-width:100% ;">
+               	    						<div style="color: #CCCCCC;font-size: 20px;font-weight: bold;">
+               	    							主推产品
+               	    						</div>
+               	    						<div style="color: #CCCCCC;font-size: 12px;font-weight: bold;">
+               	    							PRODUCT
+               	    						</div>
+               	    						<div style="height: 1px;">
+               	    							<span style="color: pink;">----</span>
+               	    						</div>
+               	    					</div>
+               	    				</a>
+               	    			</div>
+               	    	</h1>
+						<div style="text-align: center;">
+							<div style="width: 100%;overflow: hidden;">
+								<div class="swiper-container">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide" v-for="i in 3" style="overflow: hidden;">
+											<img style="width: 427px;height: 392px;text-align: center;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNzY5MDExMmQ0MjIzN2Y5YTg0OWVjNjc0N2NmOGMxYWYucG5n.png" />
+											<img style="width: 427px;height: 392px;text-align: center;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNzY5MDExMmQ0MjIzN2Y5YTg0OWVjNjc0N2NmOGMxYWYucG5n.png" />
+											<!--<img :src="i" alt="" style="width: 427px;height: 392px;float: left;" /></div>-->
+										</div>
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="text-align: center;margin-top: -30px;">
+							<span style="font-family: arial;">
+							<span style="font-size:68px;">U</span>
+							<span style="font-size: 40px;">
+								<span style="font-size:68px;">m</span>
+							<span style="font-size:26px;">360</span>
+							</span>
+							</span>
+							<strong>
+							<span style="font-family:微软雅黑;"></span>
+						</strong>
+						</div>
+						<div style="text-align: center;">
+							<span style="font-size: 16px;">
+							 <strong>
+							 	<span style="color: rgb(57,57,57);">
+							 		 <span style="display: inline-block;line-height: 2px;">
+							 		 	  <span style="font-family: 微软雅黑;">精细</span>
+							<span style="color: rgb(57,57,57);">
+							 		 	  	 <span style="display: inline-block;line-height: 2px;">
+							 		 	  	 	 <span style="font-family: 微软雅黑;">快速</span>
+							</span>
+							</span>
+							<span style="font-family: 微软雅黑;">低剂量成像</span>
+							<span style="font-family: 微软雅黑;"></span>
+							</span>
+							</span>
+							</strong>
+							</span>
+						</div>
+
+						<div style="text-align: center;margin-top: 40px;">
+							<div style="font-size: 50px;color: #e5e5e5;font-family: tahoma;">
+								NEWS
+							</div>
+							<div style="font-size: 22px;color: #333333;font-family: 微软雅黑;">
+								----产品系列----
+							</div>
+						</div>
+						<div style="text-align: center;overflow: hidden;">
+							<div style="width: 340px;min-height: 400px;border: 1px solid #CCCCCC;margin-left: 80px;float: left;margin-top: 60px;" v-for="i in 3">
+								<div style="padding: 30px 0;color:#494949;font-size:16px;line-height:22px;">
+									医疗PPP有望成后起之秀 概念股早盘活跃
+								</div>
+								<div style="color:#7c7c7c;font-size:13px;line-height:24px;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:30px;">
+									当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护...
+								</div>
+								<div style=" color:#353535;font-size:14px;font-family:;padding-top:10px;padding-bottom:10px;padding-left:30px;padding-right:30px;">
+									阅读更多 →
+								</div>
+							</div>
+						</div>
+						<div style="text-align: center;margin-top: 40px;">
+							<div style="font-size: 50px;color: #e5e5e5;font-family: tahoma;">
+								PRODUCT
+							</div>
+							<div style="font-size: 22px;color: #333333;font-family: 微软雅黑;">
+								----产品系列----
+							</div>
+						</div>
+						<div style="text-align: center;overflow: hidden;">
+							<div style="width: 300px;min-height: 400px;float: left;margin-top: 60px;" v-for="i in 4">
+								<img style="width: 230px;height: 230px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvMDdiNzYwNTRjMjQwOWZmN2YwM2MxZTFlMjlmOTk4YTYtMjMweDIzMC5wbmc_p_p100_p_3D.png" />
+								<div style="color: #CCCCCC;font-size: 16px;line-height: 22px;">
+									THE PROJECT
+								</div>
+								<div style="color: #CCCCCC;line-height:24px;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:30px;font-size: 14px;">
+									NAME 01
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div> 
+		</template>
+		<template id="no2">
+			<div>
+				<div style="width: 50%;">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img style="width: 400px;height: 400px;margin-left: 100px;float: left;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNzY5MDExMmQ0MjIzN2Y5YTg0OWVjNjc0N2NmOGMxYWYucG5n.png" />
+
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+				<div style="float: right;margin-right: 240px;margin-top: -310px;">
+					<span style="font-family: arial;">
+							<span style="font-size:68px;">U</span>
+					<span style="font-size: 40px;">
+								<span style="font-size:68px;">m</span>
+					<span style="font-size:26px;">360</span>
+					</span>
+					</span>
+					<strong>
+							<span style="font-family:微软雅黑;"></span>
+						</strong>
+				</div>
+				<div style="float: right;margin-right: 240px;margin-top: -210px;">
+					<span style="font-size: 16px;">
+							 <strong>
+							 	<span style="color: rgb(57,57,57);">
+							 		 <span style="display: inline-block;line-height: 2px;">
+							 		 	  <span style="font-family: 微软雅黑;">精细</span>
+					<span style="color: rgb(57,57,57);">
+							 		 	  	 <span style="display: inline-block;line-height: 2px;">
+							 		 	  	 	 <span style="font-family: 微软雅黑;">快速</span>
+					</span>
+					</span>
+					<span style="font-family: 微软雅黑;">低剂量成像</span>
+					<span style="font-family: 微软雅黑;"></span>
+					</span>
+					</span>
+					</strong>
+					</span>
+				</div>
+				<div style="text-align: center;margin-top: 40px;">
+					<div style="font-size: 50px;color: #e5e5e5;font-family: tahoma;">
+						PRODUCT
+					</div>
+					<div style="font-size: 22px;color: #333333;font-family: 微软雅黑;">
+						----产品系列----
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="no3">
+			<div>
+				<texts style="padding:100px ;"></texts>
+			</div>
+		</template>
+		<template id="no4">
+			<div>
+				<jius style="padding: 80px;"></jius>
+
+			</div>
+		</template>
+		<template id="no5">
+			<div>
+				<div class="background-overlay">
+					<img style="width: 100%;height: 100%;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvZjkyMmI3YTQyZDYxMDQ0MWVmMzI0NjdkZDYxMDJmYzYuanBn.jpg" />
+				</div>
+				<div style="overflow: hidden;">
+					<div style="float: left;width: 50%;">
+						<div style="margin: 30px 60px;background: #CCCCCC;font-size: 16px;display:inline-block;position: relative;height: 30px;color: #FFFFFF;">联系我们</div>
+					</div>
+				</div>
+				<div style="position: relative;">
+					<div style="margin-left: 60px;">
+						<span style="font-size: 16px;">
+              			<span style="color: #000000;">
+              				<span style="font-family: 微软雅黑;">Um生物科技有限公司</span>
+						</span>
+						</span>
+					</div>
+					<div style="margin-left: 60px;">
+						<span style="color: #A9A9A9;">
+              			<span style="font-family: arial; font-size: 14px;">Um biotechnology Co.,Ltd</span>
+						</span>
+					</div>
+				</div><br />
+				<div style="position: relative;">
+					<div style="margin-left: 60px;">
+						<span style="display: inline-block;line-height: 20px;">
+              			 <span style="color: #808080;">
+              			 	 <span style="font-size: 14px;">
+              			 	 	 <span style="font-family:微软雅黑;">联系电话 :&nbsp;1000 8000</span>
+						</span>
+						</span>
+						</span>
+					</div>
+					<div style="margin-left: 60px;">
+						<span style="display: inline-block;line-height: 20px;">
+              			 <span style="color: #808080;">
+              			 	 <span style="font-size: 14px;">
+              			 	 	 <span style="font-family:微软雅黑;">销售热线：400 8888 8888</span>
+						</span>
+						</span>
+						</span>
+					</div>
+					<div style="margin-left: 60px;">
+						<span style="display: inline-block;line-height: 20px;">
+              			 <span style="color: #808080;">
+              			 	 <span style="font-size: 14px;">
+              			 	 	 <span style="font-family:微软雅黑;">技术服务：400 6666 6666</span>
+						</span>
+						</span>
+						</span>
+					</div>
+					<div style="margin-left: 60px;">
+						<span style="display: inline-block;line-height: 20px;">
+              			 <span style="color: #808080;">
+              			 	 <span style="font-size: 14px;">
+              			 	 	 <span style="font-family:微软雅黑;">公司传真：1000 8000</span>
+						</span>
+						</span>
+						</span>
+					</div><br />
+					<div style="margin-left: 60px;">
+						<span style="color: #808080;">
+              			 <span style="font-size: 13px;">
+              			 	  <span style="font-family: '微软雅黑';">
+              			 	  	   苏州市工业园区金鸡湖大道0号某某大厦0室
+              			 	  </span>
+						</span>
+						</span>
+					</div>
+				</div>
+
+				<iframe style="width: 50%;height: 200px;   float: right;
+    margin-right: 30px;margin-top: -220px;" src="https://map.baidu.com/@12959238.56,4825347.47,12z"></iframe>
+
+			</div>
+		</template>
+		<template id="lee">
+			<div>
+				<content_text></content_text>
+			</div>
+		</template>
+		<template id="content_text">
+			<div>
+				<div v-for="i in list_arr" v-if="i.name == $route.params.title">
+					<button @click="$router.go(-1)">返回</button>
+					<h3>{{i.name}}</h3>
+					<div>
+						{{i.text}}
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="text">
+			<div style="overflow: hidden;width: 50%;">
+				<div style=" float: left;min-height: 500px;">
+					<div class="list" @click="index=0">
+						全部咨询
+					</div>
+					<div class="list" @click="index=1">
+						企业动态
+					</div>
+					<div class="list" @click="index=2">
+						行业资讯
+					</div>
+				</div>
+				<div style="width: 70%;float: right;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/lee'+i.name">
+							<h4>{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="jiu">
+			<div style="overflow: hidden;width: 50%;">
+				<div style=" float: left;min-height: 500px;">
+					<div class="list" @click="index=0">
+						全部咨询
+					</div>
+
+				</div>
+				<div style="width: 70%;float: right;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/lee'+i.name">
+							<h4>{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+	</body>
+	<script src="swiper/dist/js/swiper.min.js"></script>
+	<script src="vue.js"></script>
+
+	<script src="vue-router.js"></script>
+	<script src="jiu.js"></script>
+	<script>
+		Vue.component('content_text', {
+			template: '#content_text',
+			data() {
+				return {
+					list_arr: [{
+						type: '1',
+						name: ' 北京130多家工业企业采取停限产措施应对雾霾',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWVmMDY3ODQ0ZDIzZmFiZDA2Y2NkNjVkZGY2MWQyZDgtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}, {
+						type: '1',
+						name: '三大能源停征价格调节基金为煤炭资源税改革清路',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}, {
+						type: '2',
+						name: '排污费价格要高于治污成本',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}]
+				}
+			}
+		})
+		Vue.component('texts', {
+			template: "#text",
+			computed: {
+				c_arr() {
+					var arr = []
+					if(this.index == 0) {
+						arr = this.list_arr
+					} else {
+						for(var i = 0; i < this.list_arr.length; i++) {
+							if(this.index == this.list_arr[i].type) {
+								arr.push(this.list_arr[i])
+							}
+						}
+					}
+					return arr
+				}
+			},
+			data() {
+				return {
+					index: 0,
+					list_arr: [{
+						type: '1',
+						name: ' 北京130多家工业企业采取停限产措施应对雾霾',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWVmMDY3ODQ0ZDIzZmFiZDA2Y2NkNjVkZGY2MWQyZDgtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+
+					}, {
+						type: '1',
+						name: '三大能源停征价格调节基金为煤炭资源税改革清路',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}, {
+						type: '2',
+						name: '排污费价格要高于治污成本',
+						text: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+',
+						img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg'
+					}]
+				}
+			}
+		})
+		var router = new VueRouter({
+			routes: [{
+					path: '/',
+					component: {
+						template: '#no1'
+					}
+				},
+				{
+					path: '/no2',
+					component: {
+						template: '#no2'
+					}
+				},
+				{
+					path: '/no3',
+					component: {
+						template: '#no3'
+					}
+				},
+				{
+					path: '/no4',
+					component: {
+						template: '#no4'
+					}
+				},
+				{
+					path: '/no5',
+					component: {
+						template: '#no5'
+					}
+				},
+				{
+					path: '/lee',
+					component: {
+						template: '#lee'
+					}
+				},
+			]
+		})
+		new Vue({
+			el: "#box",
+
+			router,
+		})
+		var swiper = new Swiper('.swiper-container', {
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			loop: true,
+			autoplay: true,
+		})
+	</script>
+
+</html>
