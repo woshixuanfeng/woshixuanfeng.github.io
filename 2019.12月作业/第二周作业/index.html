@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			[v-cloak] {
+				display: none;
+			}
+			
+			.a-header {
+				background: #224d77;
+				color: #ffffff;
+				font-size: 12px;
+				line-height: 40px;
+				padding: 0 10%;
+			}
+			
+			.a-header .a-h-tel {
+				float: left;
+			}
+			
+			.a-header .a-h-text {
+				float: right;
+			}
+			
+			.a-nav {
+				box-sizing: border-box;
+				width: 100%;
+				padding: 0 11%;
+				line-height: 95px;
+				position: absolute;
+				top: 40px;
+				left: 0;
+			}
+			
+			.a-nav .a-n-logo {
+				padding: 10px 0;
+				float: left;
+			}
+			
+			.a-nav ul {
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: nowrap;
+				position: relative;
+			}
+			
+			.a-nav ul li {
+				width: 14%;
+				text-align: center;
+				min-width: 64px;
+			}
+			
+			.a-nav ul li a {
+				color: #1d3658;
+				font-size: 16px;
+			}
+			
+			.i-banner {
+				text-align: center;
+				/*background-image: url('https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cDovLzViNmQ2Y2NhNjM3MzYudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOC8wOC9hZGE3YjFkMmQwMWY5MzM0NzEwY2NmYTQ5NzhhOTg5OS5qcGc_p_p100_p_3D.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment:no-scroll; background-position:0 0%;*/
+				margin-top: 255px;
+				padding: 0 5px;
+				min-height: 246px;
+			}
+			
+			.i-banner h3 {
+				font-size: 34px;
+				line-height: 50px;
+				font-weight: normal;
+				font-style: normal;
+				color: #225175;
+				margin-bottom: 30px;
+			}
+			
+			.i-banner>div span {
+				display: inline-block;
+				margin: 0 9px;
+				padding: 14px 70px;
+				font-size: 14px;
+				border-width: 1px;
+				border-style: solid;
+			}
+			
+			.i-banner>div span:nth-of-type(1) {
+				border-color: rgb(34, 77, 119);
+				background-color: transparent;
+				color: rgb(34, 77, 119);
+			}
+			
+			.i-banner>div span:nth-of-type(2) {
+				border-color: rgb(34, 77, 119);
+				background-color: rgb(34, 77, 119);
+				color: rgb(255, 255, 255);
+			}
+			
+			#index_1 {
+				padding: 50px 0;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: nowrap;
+				background-color: #224d77;
+			}
+			
+			#index_1 .i-items {
+				width: 25%;
+				text-align: center;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			#index_1 .i-items:after {
+				position: absolute;
+				right: 0;
+				top: 0;
+				transform: translateX(50%);
+				content: '';
+				width: 1px;
+				height: 100%;
+				background-color: #FFF;
+			}
+			
+			#index_1 .i-items:last-of-type:after {
+				content: '';
+			}
+			
+			#index_1 .i-items .i-title {
+				line-height: 60px;
+				padding: 20px 0;
+			}
+			
+			#index_1 .i-items .i-title img {
+				width: 50px;
+				height: 50px;
+			}
+			
+			#index_1 .i-items .i-title span {
+				color: #97d6ed;
+				font-size: 40px;
+				padding-left: 15px;
+			}
+			
+			#index_1 .i-items .i-text {
+				line-height: 1.5em;
+				color: #fff;
+			}
+			
+			#index_2 {
+				padding: 60px 0;
+				background-color: #f8f8f8;
+			}
+			
+			#index_2 .i-title {
+				text-align: center;
+			}
+			
+			#index_2 .i-title h3 {
+				font-size: 26px;
+				line-height: 34px;
+				font-weight: normal;
+				font-style: normal;
+				color: #1d3658;
+				padding-bottom: 10px;
+			}
+			
+			#index_2 .i-title p {
+				color: rgb(153, 153, 153);
+				font-size: 13px;
+				line-height: 25px;
+				padding-bottom: 10px;
+			}
+			
+			#index_2 .i-brand {
+				padding: 0 40px;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: nowrap;
+				padding-top: 30px;
+			}
+			
+			#index_2 .i-brand>div {
+				width: 25%;
+				text-align: center;
+				position: relative;
+				height: 100px;
+			}
+			
+			#index_2 .i-brand>div img {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#index_2 .i-brand>div img:nth-of-type(1) {
+				z-index: 10;
+			}
+			
+			#index_2 .i-brand>div img:nth-of-type(1):hover {
+				z-index: 8;
+			}
+			
+			#index_2 .i-brand>div img:nth-of-type(2):hover {
+				z-index: 11;
+			}
+			
+			#index_2 .i-brand>div img:nth-of-type(2) {
+				z-index: 9;
+			}
+			
+			#index_3 {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: nowrap;
+			}
+			
+			#index_3 .i-items {
+				width: 50%;
+				padding-top: 50px;
+				padding-bottom: 50px;
+			}
+			
+			#index_3 .i-items:nth-of-type(1) {
+				padding-left: 20%;
+				padding-right: 3%;
+				background-image: url('https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cDovLzViNmQ2Y2NhNjM3MzYudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOC8wOC81ZWYxY2UwYWU1ODIyZjE3ZDgxMWNjZTA4NmQyMjJmNC5qcGc_p_p100_p_3D.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+				background-position: 0 0%;
+			}
+			
+			#index_3 .i-items:nth-of-type(2) {
+				padding-left: 3%;
+				padding-right: 20%;
+				background-color: rgb(34, 77, 119);
+			}
+			
+			#index_3 .i-items h3 {
+				padding: 20px 0;
+				font-size: 22px;
+				font-weight: normal;
+				font-style: normal;
+				color: #ffffff;
+			}
+			
+			#index_3 .i-items p {
+				padding: 2px 2px 22px;
+				color: #fff;
+				font-size: 14px;
+			}
+			
+			#index_3 .i-items span {
+				display: inline-block;
+				font-size: 14px;
+				padding: 15px 60px;
+				border-width: 1px;
+				border-color: rgb(255, 255, 255);
+				background-color: transparent;
+				color: rgb(255, 255, 255);
+				border-style: solid;
+			}
+			
+			#index_3 .i-items span:hover {
+				background-color: #fff;
+				color: black;
+			}
+			
+			#index_4 {
+				position: relative;
+				padding-bottom: 10vh;
+			}
+			
+			#index_4 .next {
+				bottom: 50%;
+			}
+			
+			#index_4 .prev {
+				top: 50%;
+			}
+			
+			#index_4>span {
+				width: 40px;
+				height: 40px;
+				font-size: 15px;
+				line-height: 40px;
+				color: #fff;
+				background-color: rgb(34, 77, 119);
+				position: absolute;
+				right: 0px;
+				text-align: center;
+			}
+			
+			#index_4>span:hover {
+				background-color: #3472a7;
+			}
+			
+			#index_4 .swiper-container {
+				margin: 0 40px;
+				overflow: hidden;
+			}
+			
+			.swiper-wrapper {
+				width: 150%;
+				box-sizing: border-box;
+				padding-left: 3%;
+				transition: .4s;
+			}
+			
+			.swiper-wrapper>div {
+				float: left;
+				width: 33%;
+			}
+			
+			.swiper-slide {
+				width: 50%;
+				float: left;
+				box-sizing: border-box;
+				position: relative;
+			}
+			
+			.swiper-slide .s-box {
+				border: 1px solid transparent;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				transition: .4s;
+			}
+			
+			.swiper-slide:hover .s-box {
+				border-color: #3472a7;
+				transform: scale(.95);
+			}
+			
+			.swiper-slide:hover .s-title p {
+				color: #3472a7;
+				padding-top: 75px;
+			}
+			
+			.swiper-slide:hover .s-title span {
+				height: 0;
+			}
+			
+			.swiper-slide img {
+				width: 100%;
+			}
+			
+			.swiper-slide .s-title {
+				height: 248px;
+				background-color: rgb(242, 242, 242);
+				padding-top: 50px;
+			}
+			
+			.swiper-slide .s-title p {
+				text-align: center;
+				padding: 80px 0;
+				line-height: 1;
+				color: #666;
+				font-size: 20px;
+				transition: .4s;
+			}
+			
+			.swiper-slide .s-title span {
+				height: 2px;
+				width: 20px;
+				display: block;
+				margin: 0 auto;
+				background-color: #3472a7;
+			}
+			
+			.i-title1 {
+				height: 200px;
+				text-align: center;
+				padding: 60px 40px;
+				background-color: #225175;
+				box-sizing: border-box;
+			}
+			
+			.i-title1 h3 {
+				font-size: 34px;
+				font-weight: normal;
+				font-style: normal;
+				color: #ffffff;
+				padding: 0 0 20px 0;
+				line-height: 44px;
+			}
+			
+			.i-title1 p {
+				font-size: 14px;
+				line-height: 24px;
+				color: #fff;
+			}
+			
+			#index_5 {
+				padding: 0 40px;
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: nowrap;
+			}
+			
+			#index_5>div {
+				width: 48%;
+			}
+			
+			#index_5 .i-main {
+				padding: 44px 60px;
+				background-color: rgb(230, 230, 230);
+				box-sizing: border-box;
+			}
+			
+			#index_5 .i-mainc .i-items {
+				transition: .4s;
+			}
+			
+			#index_5 .i-mainc .i-items:hover .i-move {
+				left: 15px;
+			}
+			
+			#index_5 .i-mainc .i-items:hover .i-title {
+				color: #fff;
+			}
+			
+			#index_5 .i-mainc .i-items:hover .i-title:after {
+				background-color: #fff;
+			}
+			
+			#index_5 .i-mainc .i-items:hover .i-text {
+				color: #fff;
+			}
+			
+			#index_5 .i-mainc .i-items:hover {
+				background-color: rgb(34, 77, 119);
+			}
+			
+			#index_5 .i-mainc .i-items {
+				background-color: rgb(230, 230, 230);
+			}
+			
+			#index_5 .i-mainc .i-move {
+				position: relative;
+				left: 0;
+				transition: .4s;
+			}
+			
+			#index_5 .i-main .i-date,
+			#index_5 .i-mainc .i-date {
+				color: #c4c4c4;
+				font-size: 24px;
+				line-height: 32px;
+				transition: .4s;
+			}
+			
+			#index_5 .i-main .i-title,
+			#index_5 .i-mainc .i-title {
+				color: #666666;
+				font-size: 15px;
+				font-weight: normal;
+				padding-bottom: 10px;
+				line-height: 4px;
+				transition: .4s;
+				position: relative;
+			}
+			
+			#index_5 .i-mainc .i-title:after {
+				position: absolute;
+				left: -25px;
+				top: 10px;
+				width: 5px;
+				height: 5px;
+				background-color: black;
+				border-radius: 5px;
+				display: block;
+				content: '';
+				transition: .4s;
+			}
+			
+			#index_5 .i-main .i-text,
+			#index_5 .i-mainc .i-text {
+				line-height: 20px;
+				font-size: 12px;
+				color: #999;
+				margin-bottom: 10px;
+				transition: .4s;
+			}
+			
+			#index_5 .i-main>img {
+				width: 100%;
+			}
+			
+			#index_5 .i-mainc>div {
+				padding: 60px 26px;
+			}
+			/*#index_5 .i-mainc .i-date {
+				
+			}*/
+			
+			#index6 {
+				padding-bottom: 100px;
+			}
+			
+			.a-banner {
+				margin-top: 100px;
+				min-height: 300px;
+				background-image: url('https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cDovLzViNmQ2Y2NhNjM3MzYudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOC8wOC9lMzg0NTU4ZGE0MWY4ZDQ4ZWNjNmMxOGJmMWIxMGJmNC5qcGc_p_p100_p_3D.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+				background-position: center center;
+			}
+			
+			.a-section {
+				padding: 0 5%;
+				color: #808080;
+			}
+			
+			.a-section ul {
+				width: 15%;
+				margin-right: 5%;
+				float: left;
+				padding-top: 20px;
+				border-top: 2px solid rgba(34, 77, 119, 0.5);
+			}
+			
+			.a-section ul li {
+				font-size: 16px;
+				line-height: 44px;
+			}
+			
+			.a-section ul li a {
+				color: #808080;
+			}
+			
+			.a-section .a-s-content {
+				padding-top: 20px;
+				width: 80%;
+				float: left;
+				border-top: 2px solid rgba(34, 77, 119, 0.5);
+			}
+			
+			#index7 h3 {
+				line-height: 40px;
+				font-weight: 700;
+				color: rgb(29, 54, 88);
+				text-align: center;
+			}
+			
+			#index7 p {
+				line-height: 26px;
+				letter-spacing: 1px;
+				line-height: 26px;
+				font-size: 14px;
+				margin-bottom: 26px;
+			}
+			
+			.a-footer {
+				height: 200px;
+				background-color: #224d77;
+				padding-bottom: 30px;
+			}
+			
+			.a-f-nav>ul {
+				width: 70%;
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: nowrap;
+				float: left;
+				color: #fff;
+				margin-left: -20px;
+			}
+			
+			.a-f-nav>ul li {
+				font: 14px;
+				font-weight: 400;
+			}
+			
+			.a-f-about {
+				font-size: 13px;
+				color: #fff;
+				line-height: 24px;
+			}
+			
+			.a-f-about ul {
+				margin: 30px 0;
+			}
+			
+			.a-f-about ul li {
+				float: left;
+				list-style: none;
+			}
+			
+			.a-f-about>div {
+				line-height: 27px;
+			}
+			
+			.a-f-about>div p {
+				margin-right: 10px;
+				float: left;
+				list-style: none;
+			}
+			
+			.cl:after,
+			.cl:before {
+				display: block;
+				content: '';
+			}
+			
+			.cl:after {
+				clear: both;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" v-cloak="">
+			<div class="a-header cl">
+				<div class="a-h-tel">
+					<li><i class="glyphicon glyphicon-icon-phone" style="top:0px;margin-right:3px;"></i>400-0000-0008</li>
+				</div>
+				<div class="a-h-text">投资者中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人才招聘</div>
+			</div>
+			<div class="a-nav cl">
+				<div class="a-n-logo">
+					<img src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cHM6Ly81YjZkNmNjYTYzNzM2LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDgvZWZkZGJjZDY2MzcxMzFjOWJjYjEzZWMwYWE5YjcyY2MucG5n.png" alt="">
+				</div>
+				<div style="width: 70%;float: left;">
+					<ul>
+						<li>
+							<router-link to="/">网站首页</router-link>
+						</li>
+						<li>
+							<router-link to="/no2">产品中心</router-link>
+						</li>
+						<li>
+							<router-link to="/no3">产品中心</router-link>
+						</li>
+						<li>
+							<router-link to="/no4">研发中心</router-link>
+						</li>
+						<li>
+							<router-link to="/no5">特效中心</router-link>
+						</li>
+						<li>
+							<router-link to="/no6">咨询中心</router-link>
+						</li>
+						<li>
+							<router-link to="/no7">联系我们</router-link>
+						</li>
+					</ul>
+				</div>
+				<div style="float:right;">
+					<router-link to="/search">
+						<el-button type="primary" icon="el-icon-search" style="background-color: #3472a7;font-size:16px;padding:10px;"></el-button>
+					</router-link>
+				</div>
+
+			</div>
+			<router-view></router-view>
+			<div class="a-footer">
+				<div style="border-bottom: 1px solid #fff;line-height: 68px;">
+					<div style="max-width:1170px;margin:0 auto;" class="a-f-nav">
+						<ul>
+							<li>国家发展和改革委员会</li>
+							<li>国家知识产权局</li>
+							<li>国家食品药品监督管理局 </li>
+							<li>中华人民共和国卫生部</li>
+						</ul>
+						<div></div>
+					</div>
+				</div>
+				<div class="a-f-about cl" style="max-width:1170px;margin:0 auto;">
+					<ul class="cl">
+						<li>网站首页 &nbsp;| &nbsp;</li>
+						<li>关于我们 &nbsp;| &nbsp;</li>
+						<li>产品中心 &nbsp;| &nbsp;</li>
+						<li>研发中心 &nbsp;| &nbsp;</li>
+						<li>特效医药 &nbsp;| &nbsp;</li>
+						<li>咨询中心 &nbsp;| &nbsp;</li>
+						<li>联系我们</li>
+					</ul>
+					<div class="cl">
+						<p>电话：400-0000-8888</p>
+						<p> 传真：0551-55555555</p>
+					</div>
+					<div class="cl">
+						<p>地址：上海市松江区佘山林荫大道18号</p>
+						<p> 邮箱：123456789@163.com</p>
+					</div>
+					<div class="cl">
+						<p>药业公司 版权所有 ©2014-2020</p>
+						<p>备案号：苏ICP备1111111号-1</p>
+						<p>公安备案：00000000号</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<template id="no1">
+			<div>
+				<div class="i-banner">
+					<h3>我们专注药品的研发与生产质量</h3>
+					<div><span>了解更多</span><span>查看产品</span></div>
+				</div>
+				<div class="i-main">
+					<index_1></index_1>
+				</div>
+				<index_2 atitle="旗下特色品牌" atext="采购优质的原辅材料，引进精良的生产检测装备，应用先进的生产工艺">
+					<div class="i-brand">
+						<div v-for="item in 4">
+							<img src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cHM6Ly81YjZkNmNjYTYzNzM2LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDgvMzk4MDU1YzA1ZmM3YzQwZGZmMDc2ODYzNjZjMDY1ZmQucG5n.png" />
+
+						</div>
+					</div>
+				</index_2>
+				<index_3></index_3>
+				<index_2 atitle="我们的产品" atext="采购优质的原辅材料，引进精良的生产检测装备，应用先进的生产工艺">
+					<index_4></index_4>
+				</index_2>
+				<div class="i-title1">
+					<h3>匠心制好药</h3>
+					<p>云建站不仅是一个方便快捷的构建网站的自助建站平台，更重要的是，我们为中国用户提供了更多贴心的服务。</p>
+				</div>
+				<index_2 atitle="资讯中心" atext="采购优质的原辅材料，引进精良的生产检测装备，应用先进的生产工艺">
+					<index_5></index_5>
+				</index_2>
+			</div>
+		</template>
+		<template id="no2">
+               <div>
+               	<div style="margin-top: 100px;">
+               		<img style="width: 100%;height: 300px;" src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cHM6Ly81YjZkNmNjYTYzNzM2LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDgvZTM4NDU1OGRhNDFmOGQ0OGVjYzZjMThiZjFiMTBiZjQuanBn.jpg"/>
+               	</div>
+               
+               	  <texts style="padding: 100px 80px;"></texts>
+               </div>
+		</template>
+		<template id="no3">
+			<div>
+               <div style="margin-top: 100px;">
+               		<img style="width: 100%;height: 300px;" src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cHM6Ly81YjZkNmNjYTYzNzM2LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDgvZDc1OThkMjUxNmI5MjNlMWU4NmNlMjNkYTlmMzk2YmUuanBn.jpg"/>
+               	</div>
+               
+               	  <titles style="padding: 100px 80px;"></titles>
+			</div>
+		</template>
+		<template id="no4">
+			<div>
+                <div style="margin-top: 100px;">
+               		<img style="width: 100%;height: 300px;" src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cHM6Ly81YjZkNmNjYTYzNzM2LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDgvZDc1OThkMjUxNmI5MjNlMWU4NmNlMjNkYTlmMzk2YmUuanBn.jpg"/>
+               	</div>
+               
+               	  <logos style="padding: 100px 80px;"></logos>
+			</div>
+		</template>
+		<template id="no5">
+			<div>
+                <div style="margin-top: 100px;">
+               		<img style="width: 100%;height: 300px;" src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cHM6Ly81YjZkNmNjYTYzNzM2LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDgvZDc1OThkMjUxNmI5MjNlMWU4NmNlMjNkYTlmMzk2YmUuanBn.jpg"/>
+               	</div>
+               
+               	  <contents style="padding: 100px 80px;"></contents>
+			</div>
+		</template>
+		<template id="no6">
+			<div>
+               <div style="margin-top: 100px;">
+               		<img style="width: 100%;height: 300px;" src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cHM6Ly81YjZkNmNjYTYzNzM2LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDgvZDc1OThkMjUxNmI5MjNlMWU4NmNlMjNkYTlmMzk2YmUuanBn.jpg"/>
+               	</div>
+               
+               	  <cunts style="padding: 100px 80px;"></cunts>
+			</div>
+		</template>
+		<template id="no7">
+			<div>
+		    <iframe src="https://map.baidu.com/@12959238.56,4825347.47,12z" style="width: 100%;height: 450px;"></iframe>	
+	</div>
+		</template>
+		<template id="index">
+			<div id="index_1">
+				<div v-for="item in arr" class="i-items">
+					<div class="i-title"><img :src="item.imgurl" alt=""><span>{{item.title}}</span></div>
+					<p class="i-text">{{item.text}}</p>
+				</div>
+			</div>
+		</template>
+		<template id="index1">
+			<div id="index_2">
+				<div class="i-title">
+					<h3>{{title}}</h3>
+					<p>{{text}}</p>
+				</div>
+				<slot></slot>
+			</div>
+		</template>
+		<template id="index2">
+			<div id="index_3">
+				<div v-for="item in arr" class="i-items">
+					<h3>{{item.title}}</h3>
+					<p>{{item.text}}</p>
+					<span>{{item.btn}} </span>
+				</div>
+			</div>
+		</template>
+		<template id="index3">
+			<div id="index_4">
+				<div class="swiper-container">
+					<div class="swiper-wrapper cl">
+						<div v-for="item in arr">
+							<div class="swiper-slide">
+								<div class="s-box">
+								</div>
+								<div class="s-img"><img :src="item.imgurl" alt=""></div>
+								<div class="s-title"><span></span>
+									<p>{{item.title}}</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="s-box">
+								</div>
+								<div class="s-title">
+									<p>{{item.title}}</p><span></span></div>
+								<div class="s-img"><img :src="item.imgurl1" alt=""></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<span class="next" id="next">></span>
+				<span class="prev" id="prev"><</span>
+			</div>
+		</template>
+		<template id="index4">
+			<div id="index_5">
+				<div class="i-main">
+					<p class="i-date">
+						08-07
+					</p>
+					<p class="i-title">38种消费型保险之医疗保险篇</p>
+					<p class="i-text">市卫计委表示，今年，北京将按照市委十六次全会部署的原则，启动医疗服务价格改革。据悉，改革的总体原则将是“...</p>
+					<img src="https://ccdn.goodq.top/caches/ef33c99b1ca9007af21ce71ac91e156a/aHR0cDovLzViNmQ2Y2NhNjM3MzYudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxOC8wOC8xNzNjZTkwMTU1ZDYwMjRiNTMyMzQzOWMwMWEzMWRiYS01MDB4MzAwLmpwZw_p_p100_p_3D_p_p100_p_3D.jpg" alt="">
+				</div>
+				<div class="i-mainc">
+					<div v-for="item in arr" class="cl i-items" style="border-top: 1px solid #e5e5e5;margin-bottom:10px;position:relative;">
+						<div style="padding-left:25px;width:65%;float:left;box-sizing: border-box;margin-right:5%;" class="i-move">
+							<p class="i-title">{{item.title}}</p>
+							<p class="i-text">{{item.text}}</p>
+						</div>
+						<div style="width:30%;float:left;">
+							<p class="i-date">{{item.date}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="text">
+			<div style="overflow: hidden;">
+				<div style="width: 20%;float: left;min-height: 500px;">
+					<div class="list" @click="index=0">
+						 企业理念
+					</div>
+					<div class="list" @click="index=1">
+						愿景使命
+					</div>
+					<div class="list" @click="index=2">
+						发展规划
+					</div>
+				</div>
+				<div style="width: 70%;float: left;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/no4/'+i.name">
+							<h4 style="text-align: center;">{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+        <template id="title">
+			<div style="overflow: hidden;">
+				<div style="width: 20%;float: left;min-height: 500px;">
+					<div class="list" @click="index=0">
+						 企业理念
+					</div>
+					<div class="list" @click="index=1">
+						愿景使命
+					</div>
+					<div class="list" @click="index=2">
+						发展规划
+					</div>
+				</div>
+				<div style="width: 70%;float: left;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/no4/'+i.name">
+							<h4 style="text-align: center;">{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="logo">
+			<div style="overflow: hidden;">
+				<div style="width: 20%;float: left;min-height: 500px;">
+					<div class="list" @click="index=0">
+						 企业理念
+					</div>
+					<div class="list" @click="index=1">
+						愿景使命
+					</div>
+					<div class="list" @click="index=2">
+						发展规划
+					</div>
+				</div>
+				<div style="width: 70%;float: left;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/no4/'+i.name">
+							<h4 style="text-align: center;">{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="content">
+			<div style="overflow: hidden;">
+				<div style="width: 20%;float: left;min-height: 500px;">
+					<div class="list" @click="index=0">
+						 企业理念
+					</div>
+					<div class="list" @click="index=1">
+						愿景使命
+					</div>
+					<div class="list" @click="index=2">
+						发展规划
+					</div>
+				</div>
+				<div style="width: 70%;float: left;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/no4/'+i.name">
+							<h4 style="text-align: center;">{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template id="cunt">
+			<div style="overflow: hidden;">
+				<div style="width: 20%;float: left;min-height: 500px;">
+					<div class="list" @click="index=0">
+						 企业理念
+					</div>
+					<div class="list" @click="index=1">
+						愿景使命
+					</div>
+					<div class="list" @click="index=2">
+						发展规划
+					</div>
+				</div>
+				<div style="width: 70%;float: left;min-height: 500px;">
+					<div v-for="i in c_arr" style="padding: 10px;">
+						<a :href="'#/no4/'+i.name">
+							<h4 style="text-align: center;">{{i.name}}</h4>
+						</a>
+						<div>
+							{{i.text}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+	</body>
+	<script src="vue.js"></script>
+	<script src="vue-router.js"></script>
+	<script src="index_1.js"></script>
+	<script src="index_2.js"></script>
+	<script src="index_3.js"></script>
+	<script src="index_4.js"></script>
+	<script src="index_5.js"></script>
+	<script src="index_6.js"></script>
+    <script src="index_7.js"></script>
+     <script src="index_8.js"></script>
+     <script src="content_9.js"></script>
+     <script src="cunt.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script>
+		var router = new VueRouter({
+			routes: [{
+					path: "/",
+					component: {
+						template: "#no1"
+					}
+				},
+				{
+					path: "/no2/:id",
+					component: {
+						template: "#no2"
+					},
+					children: [{
+							path: '/:id',
+							component: no2
+						},
+						{
+							path: '/:id',
+							component: no2
+						},
+						{
+							path: '/:id',
+							component: no2
+						}
+					]
+				},
+				{
+					path: "/no3",
+					component: {
+						template: "#no3"
+					}
+				},
+				{
+					path: "/no4",
+					component: {
+						template: "#no4"
+					}
+				},
+				{
+					path: "/no5",
+					component: {
+						template: "#no5"
+					}
+				},
+				{
+					path: "/no6",
+					component: {
+						template: "#no6"
+					}
+				},
+				{
+					path: "/no7",
+					component: {
+						template: "#no7"
+					}
+				},
+			]
+		})
+		new Vue({
+					el: "#box",
+					router,
+							data() {
+								return {
+									a: {
+										title: '关于我们',
+										list: ['企业理念', '愿景使命', '发展规划']
+									},
+									data: '',
+									
+								}
+							},
+					
+							watch: {
+								'$route.path' (a, b) {
+									console.log(a,b)
+								}
+							},
+							
+
+						})
+	</script>
+
+</html>
